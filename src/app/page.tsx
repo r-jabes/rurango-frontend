@@ -39,12 +39,12 @@ export default function Home() {
             }
           />
           <div className="border-t border-border">
-            {capabilities.map((item, index) => (
+            {capabilities.map((capability, index) => (
               <CapabilityItem
-                key={item.title}
-                title={item.title}
-                description={item.description}
+                key={capability.title}
+                capability={capability}
                 index={index}
+                compact
               />
             ))}
           </div>
