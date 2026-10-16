@@ -1,8 +1,9 @@
 "use client";
 
-import { useActionState, useEffect, useId, useRef } from "react";
+import { useCallback, useId, useRef, useState, useTransition } from "react";
 import { submitContactForm } from "@/app/contact/actions";
 import { Button } from "@/components/ui/Button";
+import { Toast, type ToastMessage } from "@/components/ui/Toast";
 import { INQUIRY_TYPES, type ContactActionResult } from "@/lib/contact";
 import { TextAreaField, TextField } from "./FormField";
 import { SelectField } from "./SelectField";
@@ -11,35 +12,72 @@ type ContactFormProps = {
   configured: boolean;
 };
 
-const initialState: ContactActionResult | null = null;
+type Draft = {
+  name: string;
+  email: string;
+  organization: string;
+  inquiryType: string;
+  message: string;
+};
+
+const emptyDraft: Draft = {
+  name: "",
+  email: "",
+  organization: "",
+  inquiryType: "",
+  message: "",
+};
 
 export function ContactForm({ configured }: ContactFormProps) {
-  const [state, formAction, pending] = useActionState(
-    submitContactForm,
-    initialState,
-  );
+  const [pending, startTransition] = useTransition();
+  const [state, setState] = useState<ContactActionResult | null>(null);
+  const [draft, setDraft] = useState<Draft>(emptyDraft);
+  const [toast, setToast] = useState<ToastMessage | null>(null);
   const statusId = useId();
   const statusRef = useRef<HTMLDivElement>(null);
-  const formRef = useRef<HTMLFormElement>(null);
 
-  useEffect(() => {
-    if (!state) return;
+  const dismissToast = useCallback(() => setToast(null), []);
 
-    if (!state.ok && state.fieldErrors) {
-      const order = ["name", "email", "message"] as const;
-      for (const field of order) {
-        if (state.fieldErrors[field]) {
-          document.getElementById(field)?.focus();
-          return;
+  const formAction = (formData: FormData) => {
+    startTransition(async () => {
+      const result = await submitContactForm(null, formData);
+      setState(result);
+
+      if (result.ok) {
+        setDraft(emptyDraft);
+        setToast({
+          id: Date.now(),
+          tone: "success",
+          title: "Your inquiry was sent.",
+          description: "RURANGO will follow up at the email you provided.",
+        });
+        statusRef.current?.focus();
+        return;
+      }
+
+      setToast({
+        id: Date.now(),
+        tone: "error",
+        title: result.message,
+        description:
+          result.code === "validation"
+            ? "Please review the highlighted fields and try again."
+            : undefined,
+      });
+
+      if (result.fieldErrors) {
+        const order = ["name", "email", "message"] as const;
+        for (const field of order) {
+          if (result.fieldErrors[field]) {
+            document.getElementById(field)?.focus();
+            return;
+          }
         }
       }
-    }
 
-    statusRef.current?.focus();
-    if (state.ok) {
-      formRef.current?.reset();
-    }
-  }, [state]);
+      statusRef.current?.focus();
+    });
+  };
 
   const fieldErrors = state && !state.ok ? state.fieldErrors : undefined;
 
@@ -63,7 +101,6 @@ export function ContactForm({ configured }: ContactFormProps) {
       ) : null}
 
       <form
-        ref={formRef}
         action={formAction}
         className="relative max-w-xl space-y-5"
         noValidate
@@ -78,6 +115,10 @@ export function ContactForm({ configured }: ContactFormProps) {
           placeholder="Your name"
           disabled={pending}
           error={fieldErrors?.name}
+          value={draft.name}
+          onChange={(event) =>
+            setDraft((current) => ({ ...current, name: event.target.value }))
+          }
         />
         <TextField
           id="email"
@@ -89,6 +130,10 @@ export function ContactForm({ configured }: ContactFormProps) {
           placeholder="you@example.com"
           disabled={pending}
           error={fieldErrors?.email}
+          value={draft.email}
+          onChange={(event) =>
+            setDraft((current) => ({ ...current, email: event.target.value }))
+          }
         />
         <TextField
           id="organization"
@@ -97,6 +142,13 @@ export function ContactForm({ configured }: ContactFormProps) {
           autoComplete="organization"
           placeholder="Company or team"
           disabled={pending}
+          value={draft.organization}
+          onChange={(event) =>
+            setDraft((current) => ({
+              ...current,
+              organization: event.target.value,
+            }))
+          }
         />
         <SelectField
           id="inquiryType"
@@ -105,6 +157,13 @@ export function ContactForm({ configured }: ContactFormProps) {
           options={INQUIRY_TYPES}
           disabled={pending}
           error={fieldErrors?.inquiryType}
+          value={draft.inquiryType}
+          onChange={(event) =>
+            setDraft((current) => ({
+              ...current,
+              inquiryType: event.target.value,
+            }))
+          }
         />
         <TextAreaField
           id="message"
@@ -114,6 +173,10 @@ export function ContactForm({ configured }: ContactFormProps) {
           placeholder="What are you building, and how can RURANGO help?"
           disabled={pending}
           error={fieldErrors?.message}
+          value={draft.message}
+          onChange={(event) =>
+            setDraft((current) => ({ ...current, message: event.target.value }))
+          }
         />
 
         <div
@@ -131,7 +194,11 @@ export function ContactForm({ configured }: ContactFormProps) {
         </div>
 
         <div className="space-y-3 pt-2">
-          <Button type="submit" loading={pending} disabled={!configured || pending}>
+          <Button
+            type="submit"
+            loading={pending}
+            disabled={!configured || pending}
+          >
             {pending ? "Sending…" : "Submit inquiry"}
           </Button>
 
@@ -139,23 +206,13 @@ export function ContactForm({ configured }: ContactFormProps) {
             id={statusId}
             ref={statusRef}
             tabIndex={-1}
-            className="outline-none"
+            className="sr-only"
             aria-live="polite"
           >
-            {state?.ok ? (
-              <p className="rounded-lg border border-accent/40 bg-surface px-4 py-3 text-sm text-foreground">
-                Message sent. Thanks — RURANGO will follow up at the email you
-                provided.
-              </p>
-            ) : null}
-            {state && !state.ok ? (
-              <p
-                className="rounded-lg border border-red-400/40 bg-surface px-4 py-3 text-sm text-red-200"
-                role="alert"
-              >
-                {state.message}
-              </p>
-            ) : null}
+            {state?.ok
+              ? "Your inquiry was sent. RURANGO will follow up at the email you provided."
+              : null}
+            {state && !state.ok ? state.message : null}
           </div>
 
           <p className="text-sm text-foreground-muted">
@@ -165,6 +222,8 @@ export function ContactForm({ configured }: ContactFormProps) {
           </p>
         </div>
       </form>
+
+      <Toast toast={toast} onDismiss={dismissToast} />
     </div>
   );
 }

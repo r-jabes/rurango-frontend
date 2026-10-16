@@ -337,6 +337,21 @@
     animation: page-enter var(--motion-reveal) var(--ease-out) both;
   }
 
+  @keyframes toast-enter {
+    from {
+      opacity: 0;
+      transform: translateY(0.5rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .toast-enter {
+    animation: toast-enter var(--motion-base) var(--ease-out) both;
+  }
+
   .reveal-pending {
     opacity: 0;
     transform: translateY(var(--reveal-distance));
