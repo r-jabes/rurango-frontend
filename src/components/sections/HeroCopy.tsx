@@ -13,7 +13,7 @@ export function HeroCopy({ className, compact = false }: HeroCopyProps) {
   return (
     <div className={cn("relative z-10 max-w-xl space-y-3 sm:space-y-4", className)}>
       <div className="hero-reveal hero-reveal-1">
-        <Eyebrow>Independent technology studio</Eyebrow>
+        <Eyebrow>Built to outlast</Eyebrow>
       </div>
 
       <h1
@@ -30,7 +30,8 @@ export function HeroCopy({ className, compact = false }: HeroCopyProps) {
       </h1>
 
       <p className="hero-reveal hero-reveal-3 max-w-md text-sm leading-relaxed text-foreground-secondary sm:text-base lg:text-lg">
-        We turn complex ideas into considered digital products.
+        We design and engineer digital products for property operations, local
+        commerce, and retail systems.
       </p>
 
       <div className="hero-reveal hero-reveal-4 flex flex-wrap items-center gap-x-5 gap-y-2 pt-0.5">

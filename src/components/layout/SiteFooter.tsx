@@ -51,8 +51,7 @@ export function SiteFooter() {
               Next step
             </p>
             <p className="mt-3 text-sm text-foreground-secondary">
-              Explore the work, or start a conversation about a product or
-              opportunity.
+              Explore the work, or get in touch about a product or opportunity.
             </p>
             <Link
               href="/contact"

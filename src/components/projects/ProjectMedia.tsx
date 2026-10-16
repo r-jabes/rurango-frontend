@@ -39,6 +39,8 @@ export function ProjectMedia({
       className={cn(
         "relative overflow-hidden rounded-lg border border-border",
         "bg-[linear-gradient(160deg,var(--brand-charcoal-deep),var(--surface-primary)_55%,var(--background-secondary))]",
+        "transition-[border-color] duration-[var(--motion-base)] ease-[var(--ease-out)]",
+        "group-hover:border-border-strong group-focus-within:border-accent/60",
         aspectClass[aspect],
         className,
       )}
@@ -57,11 +59,11 @@ export function ProjectMedia({
           priority={priority}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 720px"
           className={cn(
-            "relative z-[1] transition-[opacity,filter] duration-[var(--motion-base)] ease-[var(--ease-out)]",
-            "group-hover:brightness-[1.03] group-focus-within:brightness-[1.03]",
+            "relative z-[1] transition-[filter,transform] duration-[var(--motion-base)] ease-[var(--ease-out)]",
+            "group-hover:brightness-[1.06] group-focus-within:brightness-[1.06]",
             fit === "contain"
               ? "object-contain object-center p-1.5 sm:p-2"
-              : "object-cover object-top",
+              : "object-cover object-top group-hover:scale-[1.015] group-focus-within:scale-[1.015]",
           )}
         />
       ) : (

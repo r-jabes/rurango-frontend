@@ -366,47 +366,6 @@
     transition-delay: var(--reveal-delay, 0ms);
   }
 
-  .contact-sig-enter .contact-sig-grid {
-    animation: geo-fade 500ms var(--ease-out) both;
-    animation-delay: 60ms;
-  }
-
-  .contact-sig-enter .contact-sig-frame {
-    animation: geo-fade 450ms var(--ease-out) both;
-    animation-delay: 120ms;
-  }
-
-  .contact-sig-enter .contact-sig-plane {
-    animation: hero-in 520ms var(--ease-out) both;
-  }
-
-  .contact-sig-enter .contact-sig-plane:nth-of-type(1) {
-    animation-delay: 160ms;
-  }
-
-  .contact-sig-enter .contact-sig-plane:nth-of-type(2) {
-    animation-delay: 220ms;
-  }
-
-  .contact-sig-enter .contact-sig-plane:nth-of-type(3) {
-    animation-delay: 280ms;
-  }
-
-  .contact-sig-enter .contact-sig-accent {
-    animation: accent-settle 650ms var(--ease-out) 320ms both;
-  }
-
-  .contact-sig-enter .contact-sig-line {
-    stroke-dasharray: 280;
-    stroke-dashoffset: 280;
-    animation: line-draw 900ms var(--ease-out) 300ms forwards;
-  }
-
-  .contact-sig-enter .contact-sig-label {
-    animation: geo-fade 400ms var(--ease-out) both;
-    animation-delay: 480ms;
-  }
-
   .nav-panel-enter {
     animation: nav-panel-in var(--motion-base) var(--ease-out) both;
   }

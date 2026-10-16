@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact · RURANGO",
     description:
-      "Start a conversation with RURANGO about a product, collaboration, or opportunity.",
+      "Get in touch with RURANGO about a product, collaboration, or opportunity.",
     url: "/contact",
   },
 };
@@ -47,14 +47,14 @@ export default function ContactPage() {
           <Reveal className="lg:col-span-6 xl:col-span-6" variant="text">
             <div className="space-y-8">
               <header className="max-w-xl space-y-4">
-                <Eyebrow>Start a conversation</Eyebrow>
+                <Eyebrow>Contact</Eyebrow>
                 <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl md:text-[2.75rem] md:leading-[1.1]">
-                  Let&apos;s build something meaningful.
+                  Let&apos;s discuss your project.
                 </h1>
                 <p className="text-base text-foreground-secondary sm:text-lg">
-                  Product projects, collaborations, and opportunities —
-                  share a short note and we&apos;ll continue from there.
-                  Required fields are marked.
+                  Share a short note about a product to build, improve, or
+                  launch — or about a collaboration or opportunity. Required
+                  fields are marked.
                 </p>
               </header>
 

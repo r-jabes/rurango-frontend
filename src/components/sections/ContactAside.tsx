@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { DirectionalLink } from "@/components/ui/DirectionalLink";
-import { ContactSignature } from "@/components/visuals/ContactSignature";
+import { ContactMotion } from "@/components/visuals/ContactMotion";
 import { site } from "@/content/site";
 
 /**
- * Right-column composition for /contact — brand visual + verified next steps.
+ * Right-column composition for /contact — motion asset + verified next steps.
  * No invented addresses, phones, or response-time claims.
  */
 export function ContactAside() {
@@ -17,20 +17,19 @@ export function ContactAside() {
 
       <div className="relative z-10 space-y-3">
         <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-accent">
-          Studio signal
+          Collaboration
         </p>
-        <p className="max-w-sm text-lg font-medium tracking-tight text-foreground sm:text-xl">
-          Design and engineering in one conversation.
+        <p className="max-w-sm text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
+          If you can imagine it, we can build it.
         </p>
         <p className="max-w-sm text-sm text-foreground-secondary">
-          Bring a product to build, improve, or launch. RURANGO focuses on
-          considered interfaces and dependable delivery — not generic agency
-          theatre.
+          From early concepts to a shipped product — clear interfaces, reliable
+          systems, and work that holds up in practice.
         </p>
       </div>
 
-      <div className="relative z-10 flex justify-center lg:justify-end">
-        <ContactSignature className="contact-sig-enter" />
+      <div className="relative z-10 w-full">
+        <ContactMotion />
       </div>
 
       <div className="relative z-10 space-y-5 border-t border-border pt-6">
@@ -61,7 +60,7 @@ export function ContactAside() {
         </ul>
 
         <p className="font-mono text-[11px] tracking-[0.08em] text-foreground-muted">
-          {site.name} · Independent technology studio
+          {site.name} · Built to outlast
         </p>
       </div>
     </aside>

@@ -32,21 +32,27 @@ export function ProjectCard({
       <ProjectMedia
         src={project.previewImage}
         alt={`${project.title} product interface`}
-        aspect="landscape"
+        aspect="cover"
+        fit="contain"
       />
 
       <div className="flex flex-col gap-3 px-1 pb-2">
         <div className="flex items-start justify-between gap-3">
           <div className="space-y-2">
             {typeof index === "number" ? (
-              <p className="font-mono text-[11px] text-foreground-muted">
+              <p className="pointer-events-none font-mono text-[11px] text-foreground-muted">
                 {String(index + 1).padStart(2, "0")}
               </p>
             ) : null}
             <h3 className="text-xl font-semibold tracking-tight text-foreground">
               <Link
                 href={destination}
-                className="rounded-sm after:absolute after:inset-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+                className={cn(
+                  "rounded-sm transition-colors duration-[var(--motion-base)] ease-[var(--ease-out)]",
+                  "after:absolute after:inset-0 after:z-[1]",
+                  "group-hover:text-accent group-focus-within:text-accent",
+                  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus",
+                )}
               >
                 {project.title}
               </Link>
@@ -54,14 +60,18 @@ export function ProjectCard({
           </div>
           <span
             aria-hidden="true"
-            className="mt-1 text-accent opacity-0 transition-all duration-[var(--motion-base)] group-hover:translate-x-0.5 group-hover:opacity-100 group-focus-within:opacity-100"
+            className="pointer-events-none relative z-[2] mt-1 inline-block text-accent opacity-70 transition-[opacity,transform] duration-[var(--motion-base)] ease-[var(--ease-out)] group-hover:translate-x-1.5 group-hover:opacity-100 group-focus-within:translate-x-1.5 group-focus-within:opacity-100"
           >
             →
           </span>
         </div>
 
-        <p className="text-sm text-foreground-secondary">{project.summary}</p>
-        <ProjectMetadata project={project} />
+        <p className="pointer-events-none text-sm text-foreground-secondary">
+          {project.summary}
+        </p>
+        <div className="pointer-events-none">
+          <ProjectMetadata project={project} />
+        </div>
       </div>
     </article>
   );

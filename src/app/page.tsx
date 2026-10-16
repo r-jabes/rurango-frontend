@@ -52,7 +52,7 @@ export default function Home() {
             <SectionHeading
               eyebrow="Capabilities"
               title="What RURANGO can build"
-              description="Capabilities grounded in shipped product work — not a generic services catalogue."
+              description="Capabilities grounded in shipped product work across property operations, local commerce, and retail."
               action={
                 <DirectionalLink href="/capabilities">
                   All capabilities
@@ -78,7 +78,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="Studio"
             title="Working principles"
-            description="A quieter frame for how the work is designed and engineered."
+            description="The standards that guide how products are designed and engineered."
             action={
               <DirectionalLink href="/studio">About the studio</DirectionalLink>
             }

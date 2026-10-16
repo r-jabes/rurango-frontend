@@ -2,7 +2,7 @@ export const site = {
   name: "RURANGO",
   tagline: "Digital experiences, engineered with intent.",
   description:
-    "RURANGO brings product thinking, refined interfaces, and dependable engineering together to build useful digital experiences.",
+    "RURANGO designs and engineers digital products for property operations, local commerce, and retail systems.",
   nav: [
     { label: "Work", href: "/work" },
     { label: "Capabilities", href: "/capabilities" },

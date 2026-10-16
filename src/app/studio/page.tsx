@@ -29,7 +29,7 @@ export default function StudioPage() {
       <PageIntro
         eyebrow="Studio"
         title="Working with intent"
-        description="RURANGO is a technology practice for designing and engineering useful digital products. No invented founding myth, office tour, or fictional team — the work is the evidence."
+        description="RURANGO is a technology practice for designing and engineering digital products. The work is the evidence — no invented founding story or fictional team."
         grid
         actions={
           <>

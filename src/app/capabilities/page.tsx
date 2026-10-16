@@ -29,10 +29,10 @@ export default function CapabilitiesPage() {
       <PageIntro
         eyebrow="Capabilities"
         title="What RURANGO can help build"
-        description="Specific product and engineering capabilities supported by live work across property operations, local commerce, and retail systems — not a generic services catalogue."
+        description="Product and engineering capabilities supported by live work across property operations, local commerce, and retail systems."
         actions={
           <ButtonLink href="/contact" variant="secondary">
-            Start a conversation
+            Get in touch
           </ButtonLink>
         }
       />

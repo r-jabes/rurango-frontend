@@ -18,8 +18,7 @@ export function ClosingCta() {
             Discuss a project or opportunity
           </h2>
           <p className="text-foreground-secondary">
-            If you have a product to build, improve, or launch — start the
-            conversation.
+            If you have a product to build, improve, or launch — get in touch.
           </p>
         </div>
         <div className="relative z-10 flex flex-wrap gap-3">
