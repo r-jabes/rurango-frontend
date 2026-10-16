@@ -24,8 +24,9 @@ export function ProjectCard({
   return (
     <article
       className={cn(
-        "group relative flex flex-col gap-4 rounded-xl border border-border bg-surface p-3 transition-colors duration-[var(--motion-base)]",
-        "hover:border-border-strong focus-within:border-accent",
+        "group relative flex flex-col gap-4 rounded-xl border border-border bg-surface p-3",
+        "transition-[border-color,background-color] duration-[var(--motion-base)] ease-[var(--ease-out)]",
+        "hover:border-border-strong hover:bg-surface-secondary/40 focus-within:border-accent",
         featured && "h-full",
         className,
       )}

@@ -54,7 +54,7 @@ export function CaseStudyDiagram({ project, className }: CaseStudyDiagramProps) 
             {diagram.nodes.map((node, index) => (
               <li
                 key={node}
-                className="rounded-lg border border-border bg-background/70 px-3 py-4 backdrop-blur-sm"
+                className="diagram-node rounded-lg border border-border bg-background/70 px-3 py-4 backdrop-blur-sm"
               >
                 <p className="font-mono text-[10px] text-foreground-muted">
                   {String(index + 1).padStart(2, "0")}

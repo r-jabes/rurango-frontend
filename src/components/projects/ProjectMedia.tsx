@@ -35,10 +35,11 @@ export function ProjectMedia({
         />
       ) : (
         <div
-          className="absolute inset-0 bg-[linear-gradient(135deg,var(--background-secondary),var(--surface-secondary))]"
+          className="absolute inset-0 bg-[linear-gradient(135deg,var(--background-secondary),var(--surface-secondary))] transition-transform duration-[var(--motion-base)] ease-[var(--ease-out)] group-hover:scale-[1.02] group-focus-within:scale-[1.02]"
           aria-hidden="true"
         >
           <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(to_right,var(--border-subtle)_1px,transparent_1px),linear-gradient(to_bottom,var(--border-subtle)_1px,transparent_1px)] [background-size:24px_24px]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,color-mix(in_srgb,var(--brand-green)_10%,transparent),transparent_45%)] opacity-0 transition-opacity duration-[var(--motion-base)] group-hover:opacity-100 group-focus-within:opacity-100" />
           <div className="absolute bottom-4 left-4 right-4">
             <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-accent">
               Preview

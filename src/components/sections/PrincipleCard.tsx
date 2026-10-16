@@ -17,6 +17,8 @@ export function PrincipleCard({
     <article
       className={cn(
         "rounded-xl border border-border bg-surface p-5 sm:p-6",
+        "transition-[border-color,background-color] duration-[var(--motion-base)] ease-[var(--ease-out)]",
+        "hover:border-border-strong hover:bg-surface-secondary/30",
         className,
       )}
     >

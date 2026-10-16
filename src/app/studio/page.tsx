@@ -28,6 +28,7 @@ export default function StudioPage() {
         eyebrow="Studio"
         title="Working with intent"
         description="RURANGO is a technology practice for designing and engineering useful digital products. No invented founding myth, office tour, or fictional team — the work is the evidence."
+        grid
         actions={
           <>
             <ButtonLink href="/work">See the work</ButtonLink>

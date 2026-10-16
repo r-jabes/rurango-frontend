@@ -42,13 +42,15 @@
   --radius-lg: 0.75rem;
   --radius-xl: 1.25rem;
 
-  /* Motion */
+  /* Motion — docs/05-BACKGROUND-AND-MOTION-SPECIFICATION.md */
   --motion-fast: 150ms;
   --motion-base: 250ms;
   --motion-reveal: 400ms;
   --motion-hero: 550ms;
+  --motion-stagger: 60ms;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
+  --reveal-distance: 0.75rem;
 
   color-scheme: dark;
 }
@@ -178,12 +180,12 @@
   }
 }
 
-/* Home hero motion — content remains visible without animation */
+/* Motion — content remains visible without animation / JS */
 @media (prefers-reduced-motion: no-preference) {
   @keyframes hero-in {
     from {
       opacity: 0;
-      transform: translateY(0.75rem);
+      transform: translateY(var(--reveal-distance));
     }
     to {
       opacity: 1;
@@ -202,12 +204,29 @@
     }
   }
 
-  @keyframes accent-pulse {
+  @keyframes accent-settle {
     from {
-      opacity: 0.55;
+      opacity: 0.35;
     }
     to {
-      opacity: 0.95;
+      opacity: 0.92;
+    }
+  }
+
+  @keyframes line-draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes nav-panel-in {
+    from {
+      opacity: 0;
+      transform: translateY(-0.35rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 
@@ -216,28 +235,29 @@
   }
 
   .hero-reveal-1 {
-    animation-delay: 40ms;
+    animation-delay: var(--motion-stagger);
   }
 
   .hero-reveal-2 {
-    animation-delay: 100ms;
+    animation-delay: calc(var(--motion-stagger) * 2);
   }
 
   .hero-reveal-3 {
-    animation-delay: 160ms;
+    animation-delay: calc(var(--motion-stagger) * 3);
   }
 
   .hero-reveal-4 {
-    animation-delay: 220ms;
+    animation-delay: calc(var(--motion-stagger) * 4);
   }
 
   .hero-reveal-5 {
     animation: geometry-in calc(var(--motion-hero) + 80ms) var(--ease-out) both;
-    animation-delay: 160ms;
+    animation-delay: calc(var(--motion-stagger) * 3);
   }
 
+  /* One-shot accent settle — no continuous pulse (M-02) */
   .hero-geometry-accent {
-    animation: accent-pulse 2.4s var(--ease-in-out) 0.6s infinite alternate;
+    animation: accent-settle 700ms var(--ease-out) 280ms both;
   }
 
   .hero-geometry-line {
@@ -246,9 +266,41 @@
     animation: line-draw 900ms var(--ease-out) 350ms forwards;
   }
 
-  @keyframes line-draw {
-    to {
-      stroke-dashoffset: 0;
-    }
+  .reveal-pending {
+    opacity: 0;
+    transform: translateY(var(--reveal-distance));
+  }
+
+  .reveal-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+      opacity var(--motion-reveal) var(--ease-out),
+      transform var(--motion-reveal) var(--ease-out);
+  }
+
+  .nav-panel-enter {
+    animation: nav-panel-in var(--motion-base) var(--ease-out) both;
+  }
+
+  .diagram-node {
+    opacity: 0;
+    animation: hero-in var(--motion-reveal) var(--ease-out) both;
+  }
+
+  .diagram-node:nth-child(1) {
+    animation-delay: 40ms;
+  }
+
+  .diagram-node:nth-child(2) {
+    animation-delay: 100ms;
+  }
+
+  .diagram-node:nth-child(3) {
+    animation-delay: 160ms;
+  }
+
+  .diagram-node:nth-child(4) {
+    animation-delay: 220ms;
   }
 }

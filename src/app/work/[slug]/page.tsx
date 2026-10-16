@@ -9,6 +9,7 @@ import { ClosingCta } from "@/components/sections/ClosingCta";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { DirectionalLink } from "@/components/ui/DirectionalLink";
 import { Eyebrow } from "@/components/ui/Eyebrow";
+import { AmbientSurface } from "@/components/visuals/AmbientSurface";
 import {
   getProjectBySlug,
   getRelatedProjects,
@@ -53,39 +54,47 @@ export default async function WorkCasePage({
 
   return (
     <main>
-      <PageContainer className="border-b border-border py-14 md:py-20">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-end">
-          <div className="max-w-3xl space-y-5">
-            <Eyebrow>Case study</Eyebrow>
-            <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl">
-              {project.title}
-            </h1>
-            <p className="text-lg text-foreground-secondary">
-              {project.summary}
-            </p>
-            <ProjectMetadata project={project} />
-            {project.role ? (
-              <p className="text-sm text-foreground-muted">
-                Role:{" "}
-                <span className="text-foreground-secondary">{project.role}</span>
+      <AmbientSurface
+        intensity="subtle"
+        glow
+        className="border-b border-border"
+      >
+        <PageContainer className="py-14 md:py-20">
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-end">
+            <div className="relative z-10 max-w-3xl space-y-5">
+              <Eyebrow>Case study</Eyebrow>
+              <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl">
+                {project.title}
+              </h1>
+              <p className="text-lg text-foreground-secondary">
+                {project.summary}
               </p>
-            ) : null}
-            <div className="flex flex-wrap gap-3 pt-2">
-              <ButtonLink
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Visit live site
-              </ButtonLink>
-              <ButtonLink href="/work" variant="secondary">
-                Back to work
-              </ButtonLink>
+              <ProjectMetadata project={project} />
+              {project.role ? (
+                <p className="text-sm text-foreground-muted">
+                  Role:{" "}
+                  <span className="text-foreground-secondary">
+                    {project.role}
+                  </span>
+                </p>
+              ) : null}
+              <div className="flex flex-wrap gap-3 pt-2">
+                <ButtonLink
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Visit live site
+                </ButtonLink>
+                <ButtonLink href="/work" variant="secondary">
+                  Back to work
+                </ButtonLink>
+              </div>
             </div>
+            <CaseStudyDiagram project={project} />
           </div>
-          <CaseStudyDiagram project={project} />
-        </div>
-      </PageContainer>
+        </PageContainer>
+      </AmbientSurface>
 
       <PageContainer className="space-y-12 py-12 md:space-y-16 md:py-16">
         {project.audience ? (

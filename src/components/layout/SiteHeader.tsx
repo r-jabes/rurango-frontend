@@ -143,7 +143,7 @@ export function SiteHeader() {
         hidden={!open}
         className={cn(
           "border-t border-border bg-background md:hidden",
-          open ? "block" : "hidden",
+          open && "nav-panel-enter",
         )}
       >
         <PageContainer className="flex flex-col gap-1 py-4">
