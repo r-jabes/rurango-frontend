@@ -10,13 +10,13 @@ export const capabilities: Capability[] = [
   {
     title: "Digital product development",
     description:
-      "End-to-end product work: clarifying the problem, shaping the experience, and shipping usable software people can operate day to day.",
+      "From problem framing through shipped software — interfaces and systems people can run day to day.",
     problem:
-      "Ideas stall when requirements, interface, and implementation are treated as separate tracks — or when the product never reaches a trustworthy operating state.",
+      "Products stall when the problem, the interface, and the build are treated as separate jobs — or when the result never becomes something a real team can trust.",
     deliverables: [
-      "Problem framing and experience definition",
-      "Shipped product surfaces with clear participant roles",
-      "Iterative launch paths, including soft launch when focus matters",
+      "Clear problem framing and experience definition",
+      "Shipped products with distinct roles for each participant",
+      "Launch paths that fit the moment, including soft launch when focus matters",
     ],
     relatedSlugs: ["umutungo", "umugina", "rojisitiri"],
   },
@@ -36,13 +36,13 @@ export const capabilities: Capability[] = [
   {
     title: "Operations platforms",
     description:
-      "Tools for real workflows — property ops, retail inventory and sales, local marketplace discovery — grounded in how teams actually work.",
+      "Software for the work that already happens: rent and leases, shop inventory and sales, local marketplace discovery.",
     problem:
-      "Notebooks, chats, and disconnected tools hide arrears, stock mismatches, and credit risk until month-end becomes archaeology.",
+      "When notebooks, chats, and disconnected tools run the business, arrears hide, stock drifts, and credit risk shows up too late.",
     deliverables: [
-      "Ops workspaces for rent, inventory, credit, and reporting",
-      "Role-scoped access for owners, managers, agents, and teams",
-      "Public or marketplace surfaces that stay separate from private ledgers",
+      "Ops tools for rent, inventory, credit, and reporting",
+      "Access that fits owners, managers, agents, and teams",
+      "Public listings or marketplaces kept separate from private ledgers",
     ],
     relatedSlugs: ["umutungo", "rojisitiri", "umugina"],
   },

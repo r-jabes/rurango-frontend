@@ -37,7 +37,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="Selected work"
             title="Products in the wild"
-            description="Three live products spanning property operations, local commerce, and retail systems."
+            description="Umutungo for property ops, Umugina for local shopping, and Rojisitiri for multi-store retail."
             action={
               <DirectionalLink href="/work">View all work</DirectionalLink>
             }
@@ -52,7 +52,7 @@ export default function Home() {
             <SectionHeading
               eyebrow="Capabilities"
               title="What RURANGO can build"
-              description="Capabilities grounded in shipped product work across property operations, local commerce, and retail."
+              description="Product design and engineering drawn from the same work that powers Umutungo, Umugina, and Rojisitiri."
               action={
                 <DirectionalLink href="/capabilities">
                   All capabilities

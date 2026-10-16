@@ -29,7 +29,7 @@ export default function StudioPage() {
       <PageIntro
         eyebrow="Studio"
         title="Working with intent"
-        description="RURANGO is a technology practice for designing and engineering digital products. The work is the evidence — no invented founding story or fictional team."
+        description="RURANGO designs and builds software. The portfolio is the proof — not a corporate story or fictional team."
         grid
         actions={
           <>
@@ -45,7 +45,7 @@ export default function StudioPage() {
         <SectionHeading
           eyebrow="Principles"
           title="How decisions get made"
-          description="Proposed working principles that keep product surfaces clear, maintainable, and honest."
+          description="Working principles that keep interfaces clear, code maintainable, and claims honest."
           action={
             <DirectionalLink href="/capabilities">Capabilities</DirectionalLink>
           }

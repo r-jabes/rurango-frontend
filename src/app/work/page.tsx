@@ -9,12 +9,12 @@ import { projects } from "@/content/projects";
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Selected digital products from RURANGO — property operations, local commerce, and retail systems.",
+    "Selected work from RURANGO — Umutungo, Umugina, and Rojisitiri.",
   alternates: { canonical: "/work" },
   openGraph: {
     title: "Work · RURANGO",
     description:
-      "Selected digital products from RURANGO — property operations, local commerce, and retail systems.",
+      "Selected work from RURANGO — Umutungo, Umugina, and Rojisitiri.",
     url: "/work",
   },
 };
@@ -25,7 +25,7 @@ export default function WorkPage() {
       <PageIntro
         eyebrow="Work"
         title="Selected products"
-        description="Three live product surfaces across PropTech, local commerce, and retail operations. Case studies use public product facts only — no invented clients or metrics."
+        description="Three live products: property software for landlords, a marketplace for local shops, and retail ops for multi-store teams."
         actions={
           <ButtonLink href="/contact" variant="secondary">
             Discuss a project
@@ -33,10 +33,6 @@ export default function WorkPage() {
         }
       />
       <PageContainer className="space-y-8 py-12 md:py-16">
-        <p className="max-w-2xl text-sm text-foreground-muted">
-          Editorial order: property operations, marketplace discovery, then
-          retail systems. Filters are omitted while the portfolio stays small.
-        </p>
         <FeaturedProjectGrid projects={projects} />
       </PageContainer>
       <ClosingCta />

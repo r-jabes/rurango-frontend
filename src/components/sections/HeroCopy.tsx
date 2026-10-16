@@ -30,8 +30,8 @@ export function HeroCopy({ className, compact = false }: HeroCopyProps) {
       </h1>
 
       <p className="hero-reveal hero-reveal-3 max-w-md text-sm leading-relaxed text-foreground-secondary sm:text-base lg:text-lg">
-        We design and engineer digital products for property operations, local
-        commerce, and retail systems.
+        We design and build software for landlords, local marketplaces, and
+        retail shops — live products people use in Rwanda.
       </p>
 
       <div className="hero-reveal hero-reveal-4 flex flex-wrap items-center gap-x-5 gap-y-2 pt-0.5">

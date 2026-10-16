@@ -13,12 +13,12 @@ import { capabilities } from "@/content/capabilities";
 export const metadata: Metadata = {
   title: "Capabilities",
   description:
-    "Digital product development, frontend engineering, and operations platforms from RURANGO — grounded in shipped work.",
+    "Product development, frontend engineering, and operations software — shown through Umutungo, Umugina, and Rojisitiri.",
   alternates: { canonical: "/capabilities" },
   openGraph: {
     title: "Capabilities · RURANGO",
     description:
-      "Digital product development, frontend engineering, and operations platforms from RURANGO.",
+      "Product development, frontend engineering, and operations software from RURANGO.",
     url: "/capabilities",
   },
 };
@@ -29,7 +29,7 @@ export default function CapabilitiesPage() {
       <PageIntro
         eyebrow="Capabilities"
         title="What RURANGO can help build"
-        description="Product and engineering capabilities supported by live work across property operations, local commerce, and retail systems."
+        description="End-to-end product work and frontend engineering, drawn from the same products linked below."
         actions={
           <ButtonLink href="/contact" variant="secondary">
             Get in touch
@@ -40,8 +40,8 @@ export default function CapabilitiesPage() {
       <PageContainer className="border-b border-border py-12 md:py-16">
         <SectionHeading
           eyebrow="Capabilities"
-          title="Grounded in shipped products"
-          description="Each capability links to case studies where the work is visible in public product surfaces."
+          title="Shown in live work"
+          description="Each capability points to case studies where you can see the product yourself."
           className="mb-10"
         />
         <div className="border-t border-border">

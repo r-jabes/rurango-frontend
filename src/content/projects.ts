@@ -54,51 +54,51 @@ export const projects: Project[] = [
     title: "Umutungo",
     slug: "umutungo",
     summary:
-      "Property operations and public listings for landlords and agencies in Rwanda and East Africa — rent, units, expenses, maintenance, and vacancy fill on one account.",
+      "Property software for landlords and agencies in Rwanda: rent, leases, expenses, and maintenance in one place — with a public listings site to fill vacant units.",
     projectType: "product",
     status: "shipped",
     year: 2026,
     role: "Product design and engineering",
     audience:
-      "Landlords, property managers, agents, and agencies operating RWF-native portfolios in Rwanda and East Africa.",
+      "Landlords, property managers, agents, and agencies running rental portfolios in Rwanda and East Africa, priced and reported in RWF.",
     liveUrl: "https://umutungo.co",
     previewImage: "/work/umutungo/cover.png",
     featured: true,
     context:
-      "Umutungo is a PropTech workspace for portfolio operations, with a separate public listings surface for vacant inventory. Ops stays private; seekers browse published rentals without seeing internal ledgers.",
+      "Umutungo is two products under one account. Owners run the portfolio in a private ops workspace — units, leases, rent, costs, maintenance, and month-end reports. Separately, vacant inventory can be published to listings.umutungo.co so renters and buyers can browse without seeing internal ledgers.",
     problem:
-      "Rent status, lease timelines, expenses, and maintenance often live in notebooks, WhatsApp threads, and fragile spreadsheets — so arrears hide, vacancies drag on, and month-close becomes archaeology.",
+      "Most portfolios still live in notebooks, WhatsApp threads, and spreadsheets. Rent status is unclear, vacancies sit longer than they should, and closing the month means reconstructing the truth from chats and files.",
     constraints: [
-      "RWF-native rent and reporting expectations for Rwanda and East Africa",
-      "Clear separation between private ops data and public listings",
-      "Plan models for landlords, agents, and agencies with scoped access",
+      "Built around RWF rent and reporting for Rwanda and East Africa",
+      "Private ops data must never leak onto the public listings site",
+      "Plans for landlords, agents, and agencies with different access limits",
     ],
     approach:
-      "Model the product as two related surfaces: an ops workspace (units, leases, rent, expenses, maintenance, monthly close) and a listings host that publishes only chosen vacant inventory, captures prospects, and attributes leases without exposing ops.",
+      "Treat operations and listings as related but separate hosts. The workspace is the system of record. Listings only show what the owner chooses to publish. When a unit is occupied, it can stop appearing publicly; when it is vacant again, it can go back up.",
     decisions: [
       {
-        title: "Ops and listings as separate hosts",
+        title: "Keep ops and listings apart",
         detail:
-          "Public browsing never shares the same trust boundary as owner ledgers. Occupied inventory can auto-pause while vacant units remain publishable.",
+          "Seekers browse published rentals, sales, land, and commercial stock. Owners keep ledgers, expense history, and maintenance private. Same account, different trust boundary.",
       },
       {
-        title: "Role-scoped workspaces",
+        title: "Plans that match how people work",
         detail:
-          "Landlord, agent, and agency plans define entitlements — units, managers, listing caps — so growth is visible before limits surprise month-end.",
+          "Landlord, agent, and agency plans set unit counts, managers, and listing caps up front — so growth limits are visible before month-end surprises.",
       },
       {
-        title: "Month-close as a first-class workflow",
+        title: "Month-end as a real workflow",
         detail:
-          "Income, costs, and occupancy signals are gathered into a period report rather than rebuilt from chats and spreadsheets.",
+          "Income, costs, and occupancy roll into a period report per property instead of being rebuilt from chats and spreadsheets.",
       },
     ],
     implementation:
-      "Public product surfaces include a free-trial path, dashboard-style portfolio overview, asset setup, maintenance and expense tracking, and a listings publish/prospect flow. Tenant-facing capabilities include payment claims and maintenance reports.",
+      "The live product includes a free trial, portfolio dashboard, property and unit setup, expense and maintenance tracking, tenant payment claims and repair reports, and a publish/prospect flow for vacant units on the listings site.",
     scope: [
-      "Marketing and product experience for umutungo.co",
-      "Property ops concepts: units, leases, rent status, expenses, maintenance",
-      "Public listings and prospect pipeline framing",
-      "Plan differentiation for landlords, agents, and agencies",
+      "Product and marketing experience for umutungo.co",
+      "Ops concepts: units, leases, rent status, expenses, maintenance",
+      "Public listings and prospect pipeline",
+      "Plan models for landlords, agents, and agencies",
     ],
     capabilities: [
       "Rent and lease tracking",
@@ -109,128 +109,128 @@ export const projects: Project[] = [
       "Tenant portal for payment claims and maintenance reports",
     ],
     outcomes: [
-      "Live public product at umutungo.co with trial and sign-in paths",
-      "Clear dual-surface narrative: private ops + public vacancy listings",
+      "Live product at umutungo.co with trial and sign-in",
+      "Public listings at listings.umutungo.co for rent, sale, land, and commercial",
     ],
     learnings: [
-      "Property software earns trust when month-close and access boundaries are as clear as the marketing story.",
-      "Listings attribution only works if publish state stays tied to real vacancy — not a disconnected brochure site.",
+      "Property owners trust software more when month-end and access rules are as clear as the marketing story.",
+      "A listings site only helps if publish state follows real vacancy — not a brochure that drifts from the portfolio.",
     ],
     notes:
-      "The live site includes illustrative customer quotes labeled as pilot-ready stories. Those are not presented here as verified testimonials.",
+      "The live marketing site includes illustrative customer quotes labeled as pilot-ready stories. They are not treated here as verified testimonials.",
   },
   {
     title: "Umugina",
     slug: "umugina",
     summary:
-      "A Rwanda-focused marketplace that helps shoppers discover products from local sellers, compare options, and know where to find them before leaving home.",
+      "A Rwanda marketplace where shoppers see what local sellers stock, at what price, and where — before they leave home. Businesses list catalogs; agents earn on attributed sales.",
     projectType: "product",
     status: "shipped",
     year: 2026,
     role: "Product design and engineering",
     audience:
-      "Shoppers comparing local inventory, businesses publishing catalogs, and sales agents earning on attributed sales.",
+      "Shoppers comparing local inventory, shops publishing catalogs, and sales agents who earn commission on referred sales.",
     liveUrl: "https://umugina.com",
     previewImage: "/work/umugina/cover.png",
     featured: true,
     context:
-      "UMUGINA is a local discovery marketplace. Customers explore structured listings with prices, stock, and seller locations; businesses publish catalogs; agents promote products with referral tracking.",
+      "Umugina is a three-sided marketplace based in Kigali. Customers browse real listings with prices, stock status, and seller locations. Businesses publish searchable catalogs instead of relying on social posts. Sales agents get referral codes and track commissions when attributed sales complete.",
     problem:
-      "People spend hours moving shop to shop hoping to find the right product, while local businesses rely on unstructured social posts that are hard to search, compare, or trust.",
+      "People still walk shop to shop hoping something is in stock. Local businesses post on social media, but those posts are hard to search, compare, or trust — so trips stay guesswork.",
     constraints: [
-      "Must support discover-then-visit behavior, not only online checkout",
-      "Three participant roles: customer, business, sales agent",
-      "Trust cues without inventing fees or promises the product does not support",
+      "Support discover-then-visit as much as online checkout",
+      "Serve customers, businesses, and sales agents without collapsing the roles",
+      "Trust language must match what verification actually covers",
     ],
     approach:
-      "Lead with exploration — categories, recently added listings, stock status, and map-linked seller destinations — then give businesses and agents dedicated workspaces for catalogs and commissions.",
+      "Lead with exploration: categories, recently added listings, stock, and map-linked destinations. Give businesses a place to publish structured SKUs. Give agents a workspace for referrals and payouts.",
     decisions: [
       {
-        title: "Discovery before displacement",
+        title: "Discovery before the trip",
         detail:
-          "The product frames itself as helping people shop with purpose: find and compare first, then visit or buy — not as a replacement for every physical trip.",
+          "The product is not trying to replace every visit to a physical shop. It helps people know what is available and where to go — then they visit or buy.",
       },
       {
-        title: "Structured catalogs over social posts",
+        title: "Catalogs instead of feed posts",
         detail:
-          "Searchable SKUs with price, stock, and location give customers a destination instead of another feed scroll.",
+          "Searchable products with price, stock, and location beat another scroll through WhatsApp or Instagram.",
       },
       {
-        title: "Agent attribution as a first-class path",
+        title: "Agents as a real path",
         detail:
-          "Referral codes and commission tracking sit beside customer and business flows so growth loops are productized, not informal.",
+          "Referral codes and commission tracking sit next to buyer and seller flows, so growth is not an informal side channel.",
       },
     ],
     implementation:
-      "Public surfaces include explore, category browsing, cart/sign-in entry points, and an about narrative for customers, sellers, and agents. Live listings span electronics, fashion, home, and more from named local shops.",
+      "The live site includes explore, category browsing, cart and sign-in, plus account paths for shoppers, sellers, and agents. Listings cover electronics, fashion, home, and more from named shops in places like Kigali and Musanze.",
     scope: [
-      "Marketing and marketplace experience for umugina.com",
-      "Customer discovery and comparison flows",
-      "Business catalog and agent earning narratives",
+      "Marketplace experience for umugina.com",
+      "Customer discovery and comparison",
+      "Business catalog publishing and agent earning flows",
     ],
     capabilities: [
       "Product explore by category",
       "Seller locations and stock status",
       "Business catalog publishing",
       "Sales agent referral and commission tracking",
-      "Verification-oriented trust cues",
+      "Verification badges as a trust signal",
     ],
     outcomes: [
       "Live marketplace at umugina.com with real local listings",
-      "Clear three-sided model: customers, businesses, agents",
+      "Clear roles for customers, businesses, and sales agents",
     ],
     learnings: [
-      "Local commerce products need destination clarity — price alone is not enough without where to go.",
-      "Trust language should stay within what verification and reviews actually support.",
+      "Price alone is not enough — shoppers need a destination and stock truth.",
+      "Verification should be described as a review signal, not a guarantee of quality or delivery.",
     ],
   },
   {
     title: "Rojisitiri",
     slug: "rojisitiri",
     summary:
-      "A retail operating system for shops that scale — inventory, point of sale, customer credit, and multi-store growth in one calm workspace.",
+      "Retail software for shops that grow beyond one till: point of sale, inventory, customer credit, and reporting across stores — currently in soft launch.",
     projectType: "product",
     status: "soft-launch",
     year: 2026,
     role: "Product design and engineering",
     audience:
-      "Retail owners and teams running one or more stores who need POS, stock, credit, and reporting in a single operating picture.",
+      "Retail owners and teams running one or more stores who need POS, stock, credit, and reporting in the same system.",
     liveUrl: "https://rojisitiri.com",
     previewImage: "/work/rojisitiri/cover.png",
     featured: true,
     context:
-      "Rojisitiri positions itself as a retail operating system: floor selling and back-office control from one source of truth. Access is currently request-based while onboarding stays personal.",
+      "Rojisitiri is a retail operating system: cashiers sell on the floor while owners track stock, credit, and performance from the same source of truth. Access is request-based while early businesses are onboarded in person.",
     problem:
-      "Growing shops struggle when sales, stock, credit ledgers, and reporting live in disconnected tools — shelves disagree with the system and owners lack a clear operating picture across locations.",
+      "As shops add locations, sales, stock counts, credit ledgers, and reports end up in separate tools. Shelves disagree with the system, and owners lose a clear view of what is actually happening.",
     constraints: [
-      "Soft launch with limited, personally onboarded businesses",
-      "Must feel calm and fast for cashiers without hiding owner visibility",
-      "Multi-store growth path without losing a shared catalog and stock story",
+      "Soft launch with a small set of personally onboarded businesses",
+      "Fast enough for cashiers without hiding owner visibility",
+      "Ready for multi-store stock transfers from early on",
     ],
     approach:
-      "Unify POS tickets, inventory transfers and purchases, customer credit beside sales, and owner reports — then onboard stores, catalog patterns, and roles by hand before opening cold self-serve signup.",
+      "Put POS tickets, inventory transfers and purchases, customer credit, and owner reports in one product. Set up stores, catalogs, and roles with each business before opening cold self-serve signup.",
     decisions: [
       {
-        title: "Soft launch over open signup",
+        title: "Soft launch on purpose",
         detail:
-          "Early access is request-based so store setup, catalog patterns, and team roles can be configured with the business — keeping the product sharp while the operating model is proven.",
+          "Early access is request-based so store setup, catalog patterns, and team roles can be configured with the business — keeping the product sharp while the model is proven.",
       },
       {
-        title: "Credit next to the ticket",
+        title: "Credit next to the sale",
         detail:
-          "Customer balances live beside sales so credit decisions happen with context, not in a separate spreadsheet after the fact.",
+          "Customer balances sit beside the ticket so credit decisions happen with context, not in a spreadsheet after closing.",
       },
       {
-        title: "One operating picture across stores",
+        title: "Multi-store from day one",
         detail:
-          "Transfers, stock, and reporting are framed for multi-location growth from day one, even while the first cohort stays small.",
+          "Transfers, stock, and reporting are designed for more than one location, even while the first cohort stays small.",
       },
     ],
     implementation:
-      "The public site presents POS, inventory, credit, and reporting capabilities, a three-step onboarding narrative, and a request-access form for retailers. Workspace sign-in is available for already onboarded teams.",
+      "The public site covers POS, inventory, credit, and reporting, explains the three-step onboarding path, and collects access requests. Already onboarded teams can sign in to their workspace.",
     scope: [
-      "Marketing and product narrative for rojisitiri.com",
-      "Retail OS concept across POS, inventory, credit, and reports",
+      "Product and marketing narrative for rojisitiri.com",
+      "Retail flows across POS, inventory, credit, and reports",
       "Soft-launch access and onboarding framing",
     ],
     capabilities: [
@@ -241,15 +241,15 @@ export const projects: Project[] = [
       "Multi-store growth path",
     ],
     outcomes: [
-      "Public soft-launch presence at rojisitiri.com",
-      "Clear request-access path for retailers and sign-in for onboarded workspaces",
+      "Public soft-launch site at rojisitiri.com",
+      "Request-access path for retailers and sign-in for onboarded workspaces",
     ],
     learnings: [
-      "For operational software, constrained onboarding can be a product decision — not only a go-to-market delay.",
-      "Status honesty matters: soft launch should read as intentional focus, not unfinished marketing.",
+      "For ops software, limited onboarding can be a product choice — not just a delay before open signup.",
+      "Calling it a soft launch should read as focus, not unfinished marketing.",
     ],
     notes:
-      "Do not describe Rojisitiri as a fully open self-serve product while access remains request-based.",
+      "Do not describe Rojisitiri as open self-serve signup while access remains request-based.",
   },
 ];
 

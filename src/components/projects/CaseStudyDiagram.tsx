@@ -11,19 +11,19 @@ const diagrams: Record<
   { label: string; nodes: string[]; accent: string }
 > = {
   umutungo: {
-    label: "Illustrative system view from the public product",
-    nodes: ["Ops workspace", "Units & leases", "Listings host", "Prospects"],
-    accent: "Private ops stay separated from public vacancy browsing.",
+    label: "How the product is structured",
+    nodes: ["Ops workspace", "Units & leases", "Public listings", "Prospects"],
+    accent: "Owners run the portfolio privately; vacant units can go on a public listings site.",
   },
   umugina: {
-    label: "Illustrative system view from the public product",
-    nodes: ["Customers", "Explore & compare", "Business catalogs", "Agents"],
-    accent: "Discovery connects shoppers to local sellers and attributed sales.",
+    label: "How the product is structured",
+    nodes: ["Shoppers", "Explore & compare", "Shop catalogs", "Agents"],
+    accent: "Shoppers find local stock first; businesses list catalogs; agents earn on referred sales.",
   },
   rojisitiri: {
-    label: "Illustrative system view from the public product",
+    label: "How the product is structured",
     nodes: ["POS floor", "Inventory", "Customer credit", "Owner reports"],
-    accent: "One operating picture for the floor and the back office.",
+    accent: "The till, the stockroom, and the owner reports share one system.",
   },
 };
 
@@ -71,7 +71,7 @@ export function CaseStudyDiagram({ project, className }: CaseStudyDiagramProps) 
         </div>
       </div>
       <figcaption className="border-t border-border px-4 py-3 text-xs text-foreground-muted sm:px-5">
-        {diagram.label}. Not a fabricated product screenshot.
+        {diagram.label} — diagram only, not a product screenshot.
       </figcaption>
     </figure>
   );

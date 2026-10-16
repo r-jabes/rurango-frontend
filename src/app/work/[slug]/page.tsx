@@ -188,8 +188,7 @@ export default async function WorkCasePage({
               ))}
             </ul>
             <p className="text-sm text-foreground-muted">
-              Outcomes are limited to verified public deliverables — no invented
-              metrics.
+              Limited to what is publicly verifiable — no invented metrics.
             </p>
           </CaseStudySection>
         ) : null}
