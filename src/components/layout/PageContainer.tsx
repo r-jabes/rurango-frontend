@@ -1,19 +1,23 @@
-import type { ReactNode } from "react";
+import type { ElementType, ReactNode } from "react";
+import { cn } from "@/lib/cn";
 
 type PageContainerProps = {
   children: ReactNode;
   className?: string;
-  as?: "div" | "section" | "main";
+  as?: ElementType;
 };
 
 export function PageContainer({
   children,
-  className = "",
+  className,
   as: Tag = "div",
 }: PageContainerProps) {
   return (
     <Tag
-      className={`mx-auto w-full max-w-container px-[var(--gutter)] ${className}`.trim()}
+      className={cn(
+        "mx-auto w-full max-w-container px-[var(--gutter)]",
+        className,
+      )}
     >
       {children}
     </Tag>
