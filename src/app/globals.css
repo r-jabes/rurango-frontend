@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+/* RURANGO design tokens — docs/02-VISUAL-DESIGN-SYSTEM.md */
+:root {
+  /* Brand */
+  --brand-green: #b8f500;
+  --brand-green-hover: #c9ff26;
+  --brand-green-muted: #829f22;
+  --brand-charcoal: #191c1b;
+  --brand-charcoal-raised: #252a28;
+  --brand-charcoal-deep: #111312;
+  --brand-off-white: #f2f4f0;
+
+  /* Dark theme (primary site experience) */
+  --background-primary: #191c1b;
+  --background-secondary: #202421;
+  --surface-primary: #252a28;
+  --surface-secondary: #2c322e;
+  --text-primary: #f2f4f0;
+  --text-secondary: #b9c0b9;
+  --text-muted: #929b92;
+  --border-subtle: #373e38;
+  --border-strong: #596359;
+  --accent-primary: #b8f500;
+  --focus-ring: #b8f500;
+
+  /* Light editorial surfaces */
+  --background-light: #f2f4f0;
+  --surface-light: #ffffff;
+  --text-light-primary: #191c1b;
+  --text-light-secondary: #4d554e;
+  --border-light: #d9ded7;
+  --accent-light: #405a00;
+
+  /* Layout */
+  --container-max: 80rem; /* 1280px */
+  --gutter: 1.25rem;
+
+  /* Radii */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1.25rem;
+
+  /* Motion */
+  --motion-fast: 150ms;
+  --motion-base: 250ms;
+  --motion-reveal: 400ms;
+  --motion-hero: 550ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
+
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-brand-green: var(--brand-green);
+  --color-brand-green-hover: var(--brand-green-hover);
+  --color-brand-green-muted: var(--brand-green-muted);
+  --color-brand-charcoal: var(--brand-charcoal);
+  --color-brand-charcoal-raised: var(--brand-charcoal-raised);
+  --color-brand-charcoal-deep: var(--brand-charcoal-deep);
+  --color-brand-off-white: var(--brand-off-white);
+
+  --color-background: var(--background-primary);
+  --color-background-secondary: var(--background-secondary);
+  --color-surface: var(--surface-primary);
+  --color-surface-secondary: var(--surface-secondary);
+  --color-foreground: var(--text-primary);
+  --color-foreground-secondary: var(--text-secondary);
+  --color-foreground-muted: var(--text-muted);
+  --color-border: var(--border-subtle);
+  --color-border-strong: var(--border-strong);
+  --color-accent: var(--accent-primary);
+  --color-focus: var(--focus-ring);
+
+  --color-background-light: var(--background-light);
+  --color-surface-light: var(--surface-light);
+  --color-foreground-light: var(--text-light-primary);
+  --color-foreground-light-secondary: var(--text-light-secondary);
+  --color-border-light: var(--border-light);
+  --color-accent-light: var(--accent-light);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+
+  --max-width-container: var(--container-max);
+}
+
+@media (min-width: 640px) {
+  :root {
+    --gutter: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --gutter: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --gutter: 3rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --gutter: 4rem;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    background: var(--background-primary);
+    color: var(--text-primary);
+    font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.6;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--brand-green) 35%, transparent);
+    color: var(--text-primary);
+  }
+}
