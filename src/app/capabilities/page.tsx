@@ -14,16 +14,18 @@ export const metadata: Metadata = {
   title: "Capabilities",
   description:
     "Digital product development, frontend engineering, and operations platforms from RURANGO — grounded in shipped work.",
+  alternates: { canonical: "/capabilities" },
   openGraph: {
     title: "Capabilities · RURANGO",
     description:
       "Digital product development, frontend engineering, and operations platforms from RURANGO.",
+    url: "/capabilities",
   },
 };
 
 export default function CapabilitiesPage() {
   return (
-    <main>
+    <>
       <PageIntro
         eyebrow="Capabilities"
         title="What RURANGO can help build"
@@ -74,6 +76,6 @@ export default function CapabilitiesPage() {
       </section>
 
       <ClosingCta />
-    </main>
+    </>
   );
 }

@@ -33,10 +33,12 @@ export async function generateMetadata({
   return {
     title: project.title,
     description: project.summary,
+    alternates: { canonical: `/work/${project.slug}` },
     openGraph: {
       title: `${project.title} · RURANGO`,
       description: project.summary,
       type: "article",
+      url: `/work/${project.slug}`,
     },
   };
 }
@@ -53,7 +55,7 @@ export default async function WorkCasePage({
   const related = getRelatedProjects(project.slug);
 
   return (
-    <main>
+    <>
       <AmbientSurface
         intensity="subtle"
         glow
@@ -217,6 +219,6 @@ export default async function WorkCasePage({
       </PageContainer>
 
       <ClosingCta />
-    </main>
+    </>
   );
 }

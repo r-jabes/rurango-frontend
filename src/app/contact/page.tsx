@@ -10,10 +10,12 @@ export const metadata: Metadata = {
   title: "Contact",
   description:
     "Get in touch with RURANGO about a product, collaboration, or opportunity.",
+  alternates: { canonical: "/contact" },
   openGraph: {
     title: "Contact · RURANGO",
     description:
       "Start a conversation with RURANGO about a product, collaboration, or opportunity.",
+    url: "/contact",
   },
 };
 
@@ -25,7 +27,7 @@ async function ContactFormSection() {
 
 export default function ContactPage() {
   return (
-    <main>
+    <>
       <PageIntro
         eyebrow="Contact"
         title="Start a conversation"
@@ -45,6 +47,6 @@ export default function ContactPage() {
           <ContactFormSection />
         </Suspense>
       </PageContainer>
-    </main>
+    </>
   );
 }

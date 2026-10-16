@@ -11,14 +11,14 @@ export function SiteShell({ children }: SiteShellProps) {
     <>
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-accent focus:px-3 focus:py-2 focus:text-sm focus:font-medium focus:text-brand-charcoal"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-accent focus:px-3 focus:py-2 focus:text-sm focus:font-medium focus:text-brand-charcoal"
       >
         Skip to main content
       </a>
       <SiteHeader />
-      <div id="main-content" className="flex flex-1 flex-col">
+      <main id="main-content" className="flex flex-1 flex-col" tabIndex={-1}>
         {children}
-      </div>
+      </main>
       <SiteFooter />
     </>
   );

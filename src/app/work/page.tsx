@@ -10,16 +10,18 @@ export const metadata: Metadata = {
   title: "Work",
   description:
     "Selected digital products from RURANGO — property operations, local commerce, and retail systems.",
+  alternates: { canonical: "/work" },
   openGraph: {
     title: "Work · RURANGO",
     description:
       "Selected digital products from RURANGO — property operations, local commerce, and retail systems.",
+    url: "/work",
   },
 };
 
 export default function WorkPage() {
   return (
-    <main>
+    <>
       <PageIntro
         eyebrow="Work"
         title="Selected products"
@@ -38,6 +40,6 @@ export default function WorkPage() {
         <FeaturedProjectGrid projects={projects} />
       </PageContainer>
       <ClosingCta />
-    </main>
+    </>
   );
 }

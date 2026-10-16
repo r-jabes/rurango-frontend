@@ -14,16 +14,18 @@ export const metadata: Metadata = {
   title: "Studio",
   description:
     "How RURANGO approaches digital product design and engineering — principles, process, and quality standards.",
+  alternates: { canonical: "/studio" },
   openGraph: {
     title: "Studio · RURANGO",
     description:
       "How RURANGO approaches digital product design and engineering.",
+    url: "/studio",
   },
 };
 
 export default function StudioPage() {
   return (
-    <main>
+    <>
       <PageIntro
         eyebrow="Studio"
         title="Working with intent"
@@ -98,6 +100,6 @@ export default function StudioPage() {
       </PageContainer>
 
       <ClosingCta />
-    </main>
+    </>
   );
 }

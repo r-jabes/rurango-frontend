@@ -24,6 +24,17 @@ export function ContactForm({ configured }: ContactFormProps) {
 
   useEffect(() => {
     if (!state) return;
+
+    if (!state.ok && state.fieldErrors) {
+      const order = ["name", "email", "message"] as const;
+      for (const field of order) {
+        if (state.fieldErrors[field]) {
+          document.getElementById(field)?.focus();
+          return;
+        }
+      }
+    }
+
     statusRef.current?.focus();
     if (state.ok) {
       formRef.current?.reset();

@@ -18,7 +18,8 @@
   --surface-secondary: #2c322e;
   --text-primary: #f2f4f0;
   --text-secondary: #b9c0b9;
-  --text-muted: #929b92;
+  /* Slightly lifted for WCAG AA body-adjacent muted text on charcoal */
+  --text-muted: #9aa39a;
   --border-subtle: #373e38;
   --border-strong: #596359;
   --accent-primary: #b8f500;

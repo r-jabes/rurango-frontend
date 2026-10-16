@@ -31,18 +31,20 @@ export function SiteFooter() {
             <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-foreground-muted">
               Navigate
             </p>
-            <ul className="mt-3 space-y-2">
-              {site.nav.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="text-sm text-foreground-secondary transition-colors hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <nav aria-label="Footer">
+              <ul className="mt-3 space-y-2">
+                {site.nav.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className="inline-flex min-h-11 items-center text-sm text-foreground-secondary transition-colors hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           </div>
           <div>
             <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-foreground-muted">

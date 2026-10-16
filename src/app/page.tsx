@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { PageContainer } from "@/components/layout/PageContainer";
 import { FeaturedProjectGrid } from "@/components/projects/FeaturedProjectGrid";
 import { CapabilityItem } from "@/components/sections/CapabilityItem";
@@ -9,12 +10,26 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/visuals/Reveal";
 import { capabilities, principles } from "@/content/capabilities";
 import { getFeaturedProjects } from "@/content/projects";
+import { site } from "@/content/site";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: `${site.name} · ${site.tagline}`,
+  },
+  description: site.description,
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: site.name,
+    description: site.description,
+    url: "/",
+  },
+};
 
 export default function Home() {
   const featured = getFeaturedProjects();
 
   return (
-    <main>
+    <>
       <HomeHero />
 
       <Reveal>
@@ -83,6 +98,6 @@ export default function Home() {
       </Reveal>
 
       <ClosingCta />
-    </main>
+    </>
   );
 }
