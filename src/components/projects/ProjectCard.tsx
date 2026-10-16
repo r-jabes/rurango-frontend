@@ -9,15 +9,14 @@ type ProjectCardProps = {
   index?: number;
   className?: string;
   href?: string;
-  featured?: boolean;
 };
 
+/** Compact card for dense grids — media keeps a fixed aspect ratio. */
 export function ProjectCard({
   project,
   index,
   className,
   href,
-  featured = false,
 }: ProjectCardProps) {
   const destination = href ?? `/work/${project.slug}`;
 
@@ -27,17 +26,16 @@ export function ProjectCard({
         "group relative flex flex-col gap-4 rounded-xl border border-border bg-surface p-3",
         "transition-[border-color,background-color] duration-[var(--motion-base)] ease-[var(--ease-out)]",
         "hover:border-border-strong hover:bg-surface-secondary/40 focus-within:border-accent",
-        featured && "h-full",
         className,
       )}
     >
       <ProjectMedia
-        alt={`${project.title} preview`}
-        aspect={featured ? "portrait" : "landscape"}
-        className={featured ? "lg:min-h-[22rem]" : undefined}
+        src={project.previewImage}
+        alt={`${project.title} product interface`}
+        aspect="landscape"
       />
 
-      <div className="flex flex-1 flex-col gap-3 px-1 pb-2">
+      <div className="flex flex-col gap-3 px-1 pb-2">
         <div className="flex items-start justify-between gap-3">
           <div className="space-y-2">
             {typeof index === "number" ? (

@@ -35,6 +35,8 @@ export type Project = {
   constraints?: string[];
   technologies?: string[];
   liveUrl: string;
+  /** Public path under /public, e.g. /work/umutungo/cover.png */
+  previewImage?: string;
   featured?: boolean;
   context?: string;
   problem?: string;
@@ -60,6 +62,7 @@ export const projects: Project[] = [
     audience:
       "Landlords, property managers, agents, and agencies operating RWF-native portfolios in Rwanda and East Africa.",
     liveUrl: "https://umutungo.co",
+    previewImage: "/work/umutungo/cover.png",
     featured: true,
     context:
       "Umutungo is a PropTech workspace for portfolio operations, with a separate public listings surface for vacant inventory. Ops stays private; seekers browse published rentals without seeing internal ledgers.",
@@ -128,6 +131,7 @@ export const projects: Project[] = [
     audience:
       "Shoppers comparing local inventory, businesses publishing catalogs, and sales agents earning on attributed sales.",
     liveUrl: "https://umugina.com",
+    previewImage: "/work/umugina/cover.png",
     featured: true,
     context:
       "UMUGINA is a local discovery marketplace. Customers explore structured listings with prices, stock, and seller locations; businesses publish catalogs; agents promote products with referral tracking.",
@@ -192,6 +196,7 @@ export const projects: Project[] = [
     audience:
       "Retail owners and teams running one or more stores who need POS, stock, credit, and reporting in a single operating picture.",
     liveUrl: "https://rojisitiri.com",
+    previewImage: "/work/rojisitiri/cover.png",
     featured: true,
     context:
       "Rojisitiri positions itself as a retail operating system: floor selling and back-office control from one source of truth. Access is currently request-based while onboarding stays personal.",

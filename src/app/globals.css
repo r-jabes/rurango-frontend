@@ -181,6 +181,17 @@
   }
 }
 
+/* Hero geometry — simplify fine detail on narrow screens */
+@media (max-width: 639px) {
+  .hero-geo-detail {
+    display: none;
+  }
+
+  .hero-geo-grid {
+    opacity: 0.28;
+  }
+}
+
 /* Motion — content remains visible without animation / JS */
 @media (prefers-reduced-motion: no-preference) {
   @keyframes hero-in {
@@ -197,7 +208,7 @@
   @keyframes geometry-in {
     from {
       opacity: 0;
-      transform: translateY(1rem) scale(0.98);
+      transform: translateY(1rem) scale(0.985);
     }
     to {
       opacity: 1;
@@ -205,12 +216,23 @@
     }
   }
 
+  @keyframes geo-fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
   @keyframes accent-settle {
     from {
-      opacity: 0.35;
+      opacity: 0.2;
+      transform: translateY(6px) scale(0.96);
     }
     to {
       opacity: 0.92;
+      transform: translateY(0) scale(1);
     }
   }
 
@@ -236,35 +258,83 @@
   }
 
   .hero-reveal-1 {
-    animation-delay: var(--motion-stagger);
-  }
-
-  .hero-reveal-2 {
     animation-delay: calc(var(--motion-stagger) * 2);
   }
 
-  .hero-reveal-3 {
+  .hero-reveal-2 {
     animation-delay: calc(var(--motion-stagger) * 3);
   }
 
-  .hero-reveal-4 {
+  .hero-reveal-3 {
     animation-delay: calc(var(--motion-stagger) * 4);
   }
 
-  .hero-reveal-5 {
-    animation: geometry-in calc(var(--motion-hero) + 80ms) var(--ease-out) both;
-    animation-delay: calc(var(--motion-stagger) * 3);
+  .hero-reveal-4 {
+    animation-delay: calc(var(--motion-stagger) * 5);
   }
 
-  /* One-shot accent settle — no continuous pulse (M-02) */
+  .hero-reveal-5 {
+    animation: geometry-in calc(var(--motion-hero) + 100ms) var(--ease-out) both;
+    animation-delay: calc(var(--motion-stagger) * 1);
+  }
+
+  /* Assemble sequence: grid → frame → planes → lines → accent → labels */
+  .hero-geo-grid {
+    animation: geo-fade 500ms var(--ease-out) both;
+    animation-delay: 40ms;
+  }
+
+  .hero-geo-frame {
+    animation: geo-fade 450ms var(--ease-out) both;
+    animation-delay: 120ms;
+  }
+
+  .hero-geo-plane-1 {
+    animation: hero-in 500ms var(--ease-out) both;
+    animation-delay: 180ms;
+  }
+
+  .hero-geo-plane-2 {
+    animation: hero-in 520ms var(--ease-out) both;
+    animation-delay: 240ms;
+  }
+
+  .hero-geo-plane-3 {
+    animation: hero-in 520ms var(--ease-out) both;
+    animation-delay: 300ms;
+  }
+
   .hero-geometry-accent {
-    animation: accent-settle 700ms var(--ease-out) 280ms both;
+    transform-origin: center;
+    transform-box: fill-box;
+    animation: accent-settle 700ms var(--ease-out) 380ms both;
   }
 
   .hero-geometry-line {
-    stroke-dasharray: 180;
-    stroke-dashoffset: 180;
-    animation: line-draw 900ms var(--ease-out) 350ms forwards;
+    stroke-dasharray: 220;
+    stroke-dashoffset: 220;
+    animation: line-draw 900ms var(--ease-out) 320ms forwards;
+  }
+
+  .hero-geo-label {
+    animation: geo-fade 450ms var(--ease-out) both;
+    animation-delay: 520ms;
+  }
+
+  /* Route entrance — short, interruptible, never hides content permanently */
+  @keyframes page-enter {
+    from {
+      opacity: 0;
+      transform: translateY(0.4rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .page-enter {
+    animation: page-enter var(--motion-reveal) var(--ease-out) both;
   }
 
   .reveal-pending {
@@ -272,12 +342,69 @@
     transform: translateY(var(--reveal-distance));
   }
 
+  .reveal-pending.reveal-media {
+    transform: translateY(0);
+    clip-path: inset(4% 4% 4% 4%);
+  }
+
+  .reveal-pending.reveal-visual {
+    transform: translateY(0.5rem) scale(0.985);
+  }
+
+  .reveal-pending.reveal-text {
+    transform: translateY(0.5rem);
+  }
+
   .reveal-in {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+    clip-path: inset(0 0 0 0);
     transition:
       opacity var(--motion-reveal) var(--ease-out),
-      transform var(--motion-reveal) var(--ease-out);
+      transform var(--motion-reveal) var(--ease-out),
+      clip-path calc(var(--motion-reveal) + 80ms) var(--ease-out);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .contact-sig-enter .contact-sig-grid {
+    animation: geo-fade 500ms var(--ease-out) both;
+    animation-delay: 60ms;
+  }
+
+  .contact-sig-enter .contact-sig-frame {
+    animation: geo-fade 450ms var(--ease-out) both;
+    animation-delay: 120ms;
+  }
+
+  .contact-sig-enter .contact-sig-plane {
+    animation: hero-in 520ms var(--ease-out) both;
+  }
+
+  .contact-sig-enter .contact-sig-plane:nth-of-type(1) {
+    animation-delay: 160ms;
+  }
+
+  .contact-sig-enter .contact-sig-plane:nth-of-type(2) {
+    animation-delay: 220ms;
+  }
+
+  .contact-sig-enter .contact-sig-plane:nth-of-type(3) {
+    animation-delay: 280ms;
+  }
+
+  .contact-sig-enter .contact-sig-accent {
+    animation: accent-settle 650ms var(--ease-out) 320ms both;
+  }
+
+  .contact-sig-enter .contact-sig-line {
+    stroke-dasharray: 280;
+    stroke-dashoffset: 280;
+    animation: line-draw 900ms var(--ease-out) 300ms forwards;
+  }
+
+  .contact-sig-enter .contact-sig-label {
+    animation: geo-fade 400ms var(--ease-out) both;
+    animation-delay: 480ms;
   }
 
   .nav-panel-enter {

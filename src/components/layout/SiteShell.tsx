@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { PageTransition } from "@/components/motion/PageTransition";
 import { SiteFooter } from "./SiteFooter";
 import { SiteHeader } from "./SiteHeader";
 
@@ -17,7 +18,7 @@ export function SiteShell({ children }: SiteShellProps) {
       </a>
       <SiteHeader />
       <main id="main-content" className="flex flex-1 flex-col" tabIndex={-1}>
-        {children}
+        <PageTransition>{children}</PageTransition>
       </main>
       <SiteFooter />
     </>
