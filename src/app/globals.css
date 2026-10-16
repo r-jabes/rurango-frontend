@@ -177,3 +177,78 @@
     color: var(--text-primary);
   }
 }
+
+/* Home hero motion — content remains visible without animation */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes hero-in {
+    from {
+      opacity: 0;
+      transform: translateY(0.75rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes geometry-in {
+    from {
+      opacity: 0;
+      transform: translateY(1rem) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes accent-pulse {
+    from {
+      opacity: 0.55;
+    }
+    to {
+      opacity: 0.95;
+    }
+  }
+
+  .hero-reveal {
+    animation: hero-in var(--motion-hero) var(--ease-out) both;
+  }
+
+  .hero-reveal-1 {
+    animation-delay: 40ms;
+  }
+
+  .hero-reveal-2 {
+    animation-delay: 100ms;
+  }
+
+  .hero-reveal-3 {
+    animation-delay: 160ms;
+  }
+
+  .hero-reveal-4 {
+    animation-delay: 220ms;
+  }
+
+  .hero-reveal-5 {
+    animation: geometry-in calc(var(--motion-hero) + 80ms) var(--ease-out) both;
+    animation-delay: 160ms;
+  }
+
+  .hero-geometry-accent {
+    animation: accent-pulse 2.4s var(--ease-in-out) 0.6s infinite alternate;
+  }
+
+  .hero-geometry-line {
+    stroke-dasharray: 180;
+    stroke-dashoffset: 180;
+    animation: line-draw 900ms var(--ease-out) 350ms forwards;
+  }
+
+  @keyframes line-draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+}

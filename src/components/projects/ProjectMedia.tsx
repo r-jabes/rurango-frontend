@@ -6,6 +6,7 @@ type ProjectMediaProps = {
   alt: string;
   className?: string;
   priority?: boolean;
+  aspect?: "landscape" | "portrait";
 };
 
 export function ProjectMedia({
@@ -13,11 +14,13 @@ export function ProjectMedia({
   alt,
   className,
   priority = false,
+  aspect = "landscape",
 }: ProjectMediaProps) {
   return (
     <div
       className={cn(
-        "relative aspect-[16/10] overflow-hidden rounded-lg border border-border bg-surface",
+        "relative overflow-hidden rounded-lg border border-border bg-surface",
+        aspect === "portrait" ? "aspect-[4/5]" : "aspect-[16/10]",
         className,
       )}
     >

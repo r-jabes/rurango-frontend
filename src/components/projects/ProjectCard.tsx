@@ -9,6 +9,7 @@ type ProjectCardProps = {
   index?: number;
   className?: string;
   href?: string;
+  featured?: boolean;
 };
 
 export function ProjectCard({
@@ -16,6 +17,7 @@ export function ProjectCard({
   index,
   className,
   href,
+  featured = false,
 }: ProjectCardProps) {
   const destination = href ?? `/work/${project.slug}`;
 
@@ -24,10 +26,15 @@ export function ProjectCard({
       className={cn(
         "group relative flex flex-col gap-4 rounded-xl border border-border bg-surface p-3 transition-colors duration-[var(--motion-base)]",
         "hover:border-border-strong focus-within:border-accent",
+        featured && "h-full",
         className,
       )}
     >
-      <ProjectMedia alt={`${project.title} preview`} />
+      <ProjectMedia
+        alt={`${project.title} preview`}
+        aspect={featured ? "portrait" : "landscape"}
+        className={featured ? "lg:min-h-[22rem]" : undefined}
+      />
 
       <div className="flex flex-1 flex-col gap-3 px-1 pb-2">
         <div className="flex items-start justify-between gap-3">
