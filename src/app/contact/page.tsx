@@ -1,14 +1,27 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
+import { connection } from "next/server";
+import { ContactForm } from "@/components/forms/ContactForm";
 import { PageContainer } from "@/components/layout/PageContainer";
 import { PageIntro } from "@/components/sections/PageIntro";
-import { TextAreaField, TextField } from "@/components/forms/FormField";
-import { Button } from "@/components/ui/Button";
+import { isContactConfigured } from "@/lib/contact";
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
     "Get in touch with RURANGO about a product, collaboration, or opportunity.",
+  openGraph: {
+    title: "Contact · RURANGO",
+    description:
+      "Start a conversation with RURANGO about a product, collaboration, or opportunity.",
+  },
 };
+
+async function ContactFormSection() {
+  await connection();
+  const configured = isContactConfigured();
+  return <ContactForm configured={configured} />;
+}
 
 export default function ContactPage() {
   return (
@@ -16,51 +29,21 @@ export default function ContactPage() {
       <PageIntro
         eyebrow="Contact"
         title="Start a conversation"
-        description="Share a short note about your project or opportunity. Form submission will be connected in a later phase — this page shows the shared field components for now."
+        description="Share a short note about a product to build, improve, or launch — or about a collaboration or opportunity. Required fields are marked."
       />
       <PageContainer className="py-12 md:py-16">
-        <form className="max-w-xl space-y-5" noValidate>
-          <TextField
-            id="name"
-            name="name"
-            label="Name"
-            required
-            autoComplete="name"
-            placeholder="Your name"
-          />
-          <TextField
-            id="email"
-            name="email"
-            type="email"
-            label="Email"
-            required
-            autoComplete="email"
-            placeholder="you@example.com"
-          />
-          <TextField
-            id="organization"
-            name="organization"
-            label="Organization"
-            autoComplete="organization"
-            placeholder="Company or team"
-          />
-          <TextAreaField
-            id="message"
-            name="message"
-            label="Project description"
-            required
-            placeholder="What are you building, and how can RURANGO help?"
-          />
-          <div className="space-y-3 pt-2">
-            <Button type="submit" disabled>
-              Submit inquiry
-            </Button>
-            <p className="text-sm text-foreground-muted">
-              Submission is not operational yet. A real delivery channel will be
-              wired in Phase 6.
-            </p>
-          </div>
-        </form>
+        <Suspense
+          fallback={
+            <div className="max-w-xl space-y-5" aria-hidden="true">
+              <div className="h-16 rounded-md bg-surface" />
+              <div className="h-16 rounded-md bg-surface" />
+              <div className="h-16 rounded-md bg-surface" />
+              <div className="h-32 rounded-md bg-surface" />
+            </div>
+          }
+        >
+          <ContactFormSection />
+        </Suspense>
       </PageContainer>
     </main>
   );
