@@ -2,7 +2,14 @@
  * Portfolio projects — public facts only.
  * Do not invent metrics, clients, or testimonials.
  * Role is framed as RURANGO product work; refine if ownership differs.
+ *
+ * Optional Studio CMS supplements live in cms-projects.generated.json
+ * (via `npm run content:pull`). Static entries in this file always win
+ * on slug conflicts so the live portfolio stays intact until intentionally
+ * migrated.
  */
+
+import cmsGenerated from "./cms-projects.generated.json";
 
 export type ProjectStatus =
   | "shipped"
@@ -49,7 +56,7 @@ export type Project = {
   notes?: string;
 };
 
-export const projects: Project[] = [
+const staticProjects: Project[] = [
   {
     title: "Umutungo",
     slug: "umutungo",
@@ -252,6 +259,34 @@ export const projects: Project[] = [
       "Do not describe Rojisitiri as open self-serve signup while access remains request-based.",
   },
 ];
+
+function isProject(value: unknown): value is Project {
+  if (!value || typeof value !== "object") return false;
+  const candidate = value as Partial<Project>;
+  return (
+    typeof candidate.title === "string" &&
+    typeof candidate.slug === "string" &&
+    typeof candidate.summary === "string" &&
+    typeof candidate.projectType === "string" &&
+    typeof candidate.status === "string" &&
+    typeof candidate.liveUrl === "string"
+  );
+}
+
+function mergeWithStudioProjects(base: Project[]): Project[] {
+  const rawProjects: unknown[] = Array.isArray(cmsGenerated.projects)
+    ? (cmsGenerated.projects as unknown[])
+    : [];
+  const generated = rawProjects.filter(isProject);
+  if (generated.length === 0) return base;
+
+  const staticSlugs = new Set(base.map((project) => project.slug));
+  const extras = generated.filter((project) => !staticSlugs.has(project.slug));
+  return [...base, ...extras];
+}
+
+/** Public project list: static source of truth + optional Studio supplements. */
+export const projects: Project[] = mergeWithStudioProjects(staticProjects);
 
 export function getProjectBySlug(slug: string): Project | undefined {
   return projects.find((project) => project.slug === slug);
