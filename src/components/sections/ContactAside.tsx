@@ -17,14 +17,15 @@ export function ContactAside() {
 
       <div className="relative z-10 space-y-3">
         <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-accent">
-          Collaboration
+          Engagements
         </p>
         <p className="max-w-sm text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
-          If you can imagine it, we can build it.
+          From a new site to a full operations platform.
         </p>
         <p className="max-w-sm text-sm text-foreground-secondary">
-          From early concepts to a shipped product — clear interfaces, reliable
-          systems, and work that holds up in practice.
+          Typical inquiries cover websites and web apps, custom software,
+          search engine optimization, and Google Business Profile setup for
+          Search and Maps.
         </p>
       </div>
 
@@ -35,7 +36,7 @@ export function ContactAside() {
       <div className="relative z-10 space-y-5 border-t border-border pt-6">
         <div className="space-y-2">
           <p className="text-sm text-foreground-secondary">
-            Prefer to look first?
+            Prefer to review the work first?
           </p>
           <DirectionalLink href="/work">Explore selected work</DirectionalLink>
         </div>
@@ -46,7 +47,7 @@ export function ContactAside() {
               href="/capabilities"
               className="rounded-sm text-foreground-secondary transition-colors hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
             >
-              Capabilities
+              Services and capabilities
             </Link>
           </li>
           <li>
@@ -54,7 +55,7 @@ export function ContactAside() {
               href="/studio"
               className="rounded-sm text-foreground-secondary transition-colors hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
             >
-              About the studio
+              Studio approach
             </Link>
           </li>
         </ul>

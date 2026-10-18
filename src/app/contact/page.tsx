@@ -12,12 +12,12 @@ import { isContactConfigured } from "@/lib/contact";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with RURANGO about a product, collaboration, or opportunity.",
+    "Contact RURANGO about a website, web application, custom software project, search engine optimization, or Google Business Profile setup.",
   alternates: { canonical: "/contact" },
   openGraph: {
     title: "Contact · RURANGO",
     description:
-      "Get in touch with RURANGO about a product, collaboration, or opportunity.",
+      "Discuss a website, application, SEO, or Google Business Profile project with RURANGO.",
     url: "/contact",
   },
 };
@@ -49,11 +49,11 @@ export default function ContactPage() {
               <header className="max-w-xl space-y-4">
                 <Eyebrow>Contact</Eyebrow>
                 <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl md:text-[2.75rem] md:leading-[1.1]">
-                  Let&apos;s discuss your project.
+                  Tell us what you need built or improved.
                 </h1>
                 <p className="text-base text-foreground-secondary sm:text-lg">
-                  Share a short note about a product to build, improve, or
-                  launch — or about a collaboration or opportunity. Required
+                  Describe a website, web application, custom software project,
+                  SEO engagement, or Google Business Profile setup. Required
                   fields are marked.
                 </p>
               </header>

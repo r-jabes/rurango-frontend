@@ -14,12 +14,12 @@ import { site } from "@/content/site";
 
 export const metadata: Metadata = {
   title: {
-    absolute: `${site.name} · ${site.tagline}`,
+    absolute: `${site.name} · Software, web development & SEO`,
   },
   description: site.description,
   alternates: { canonical: "/" },
   openGraph: {
-    title: site.name,
+    title: `${site.name} · Websites, applications & platforms`,
     description: site.description,
     url: "/",
   },
@@ -36,8 +36,8 @@ export default function Home() {
         <PageContainer className="space-y-10 py-16 md:py-24">
           <SectionHeading
             eyebrow="Selected work"
-            title="Products in the wild"
-            description="Umutungo for property ops, Umugina for local shopping, and Rojisitiri for multi-store retail."
+            title="Products in production"
+            description="Umutungo for property operations, Umugina for local commerce, and Rojisitiri for multi-store retail — evidence of how RURANGO designs and ships software."
             action={
               <DirectionalLink href="/work">View all work</DirectionalLink>
             }
@@ -50,12 +50,12 @@ export default function Home() {
         <Reveal>
           <PageContainer className="space-y-10 py-16 md:py-24">
             <SectionHeading
-              eyebrow="Capabilities"
-              title="What RURANGO can build"
-              description="Product design and engineering drawn from the same work that powers Umutungo, Umugina, and Rojisitiri."
+              eyebrow="Services"
+              title="What RURANGO delivers"
+              description="Custom software, websites and web applications, search engine optimization, Google Business Profile setup, frontend engineering, and operations platforms."
               action={
                 <DirectionalLink href="/capabilities">
-                  All capabilities
+                  All services
                 </DirectionalLink>
               }
             />
@@ -78,7 +78,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="Studio"
             title="Working principles"
-            description="The standards that guide how products are designed and engineered."
+            description="The standards that guide how products and services are designed, engineered, and delivered."
             action={
               <DirectionalLink href="/studio">About the studio</DirectionalLink>
             }

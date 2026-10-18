@@ -1,6 +1,9 @@
 export const INQUIRY_TYPES = [
   { value: "", label: "Select an option" },
-  { value: "project", label: "New product or project" },
+  { value: "website", label: "Website or web application" },
+  { value: "software", label: "Custom software or platform" },
+  { value: "seo", label: "Search engine optimization (SEO)" },
+  { value: "gbp", label: "Google Business Profile / Maps" },
   { value: "collaboration", label: "Collaboration" },
   { value: "opportunity", label: "Role or opportunity" },
   { value: "other", label: "Something else" },

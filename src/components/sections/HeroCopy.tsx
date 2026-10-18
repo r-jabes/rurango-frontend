@@ -13,7 +13,7 @@ export function HeroCopy({ className, compact = false }: HeroCopyProps) {
   return (
     <div className={cn("relative z-10 max-w-xl space-y-3 sm:space-y-4", className)}>
       <div className="hero-reveal hero-reveal-1">
-        <Eyebrow>Built to outlast</Eyebrow>
+        <Eyebrow>Software · Web · Search</Eyebrow>
       </div>
 
       <h1
@@ -24,25 +24,26 @@ export function HeroCopy({ className, compact = false }: HeroCopyProps) {
             : "text-[1.85rem] leading-[1.12] sm:text-4xl sm:leading-[1.1] md:text-[2.65rem] lg:text-[3.1rem] lg:leading-[1.06] xl:text-[3.4rem]",
         )}
       >
-        Digital experiences,
+        Websites, apps, and platforms —
         <br className="hidden sm:block" />{" "}
-        <span className="text-accent">engineered</span> with intent.
+        <span className="text-accent">built</span> to be found and used.
       </h1>
 
       <p className="hero-reveal hero-reveal-3 max-w-md text-sm leading-relaxed text-foreground-secondary sm:text-base lg:text-lg">
-        We design and build software for landlords, local marketplaces, and
-        retail shops — live products people use in Rwanda.
+        Custom software, web development, search engine optimization, and Google
+        Business Profile setup — backed by shipped products such as Umutungo,
+        Umugina, and Rojisitiri.
       </p>
 
       <div className="hero-reveal hero-reveal-4 flex flex-wrap items-center gap-x-5 gap-y-2 pt-0.5">
-        <ButtonLink href="/work" size="large">
-          Explore our work
+        <ButtonLink href="/capabilities" size="large">
+          View services
         </ButtonLink>
         <TextLink
           href="/contact"
           className="text-sm font-medium no-underline decoration-transparent hover:underline hover:decoration-accent sm:text-base"
         >
-          Get in touch
+          Start a project
         </TextLink>
       </div>
     </div>

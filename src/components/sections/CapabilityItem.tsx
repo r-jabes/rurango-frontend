@@ -92,7 +92,18 @@ export function CapabilityItem({
                     )}
                   </ul>
                 </div>
-              ) : null}
+              ) : (
+                <p className="text-sm text-foreground-muted">
+                  Offered as a service engagement.{" "}
+                  <Link
+                    href="/contact"
+                    className="text-foreground-secondary underline-offset-2 hover:text-accent hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+                  >
+                    Contact RURANGO
+                  </Link>{" "}
+                  to discuss scope.
+                </p>
+              )}
             </>
           ) : null}
         </div>

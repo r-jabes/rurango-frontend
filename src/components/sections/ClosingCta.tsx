@@ -15,18 +15,20 @@ export function ClosingCta() {
         <div className="relative z-10 max-w-xl space-y-4">
           <Eyebrow>Next step</Eyebrow>
           <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
-            Discuss a project or opportunity
+            Discuss a website, application, or search visibility project
           </h2>
           <p className="text-foreground-secondary">
-            If you have a product to build, improve, or launch — get in touch.
+            Whether you need custom software, a business website, SEO, or a
+            Google Business Profile that appears correctly on Maps — describe
+            the work and we will respond with clear next steps.
           </p>
         </div>
         <div className="relative z-10 flex flex-wrap gap-3">
           <ButtonLink href="/contact" size="large">
-            Get in touch
+            Contact RURANGO
           </ButtonLink>
-          <ButtonLink href="/work" variant="secondary" size="large">
-            View work
+          <ButtonLink href="/capabilities" variant="secondary" size="large">
+            Browse services
           </ButtonLink>
         </div>
       </PageContainer>

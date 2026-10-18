@@ -13,12 +13,12 @@ import { principles, qualityStandards } from "@/content/capabilities";
 export const metadata: Metadata = {
   title: "Studio",
   description:
-    "How RURANGO approaches digital product design and engineering — principles, process, and quality standards.",
+    "How RURANGO approaches software development, web products, SEO, and Google Business Profile work — principles, process, and quality standards.",
   alternates: { canonical: "/studio" },
   openGraph: {
     title: "Studio · RURANGO",
     description:
-      "How RURANGO approaches digital product design and engineering.",
+      "Principles and delivery standards for software, web, and search visibility work.",
     url: "/studio",
   },
 };
@@ -29,7 +29,7 @@ export default function StudioPage() {
       <PageIntro
         eyebrow="Studio"
         title="Working with intent"
-        description="RURANGO designs and builds software. The portfolio is the proof — not a corporate story or fictional team."
+        description="RURANGO designs and builds software, websites, and platforms — and supports search visibility through SEO and Google Business Profile work. The portfolio is the proof of craft, not a fictional corporate story."
         grid
         actions={
           <>
@@ -47,7 +47,7 @@ export default function StudioPage() {
           title="How decisions get made"
           description="Working principles that keep interfaces clear, code maintainable, and claims honest."
           action={
-            <DirectionalLink href="/capabilities">Capabilities</DirectionalLink>
+            <DirectionalLink href="/capabilities">Services</DirectionalLink>
           }
         />
         <ul className="grid gap-4 sm:grid-cols-2">

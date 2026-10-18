@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { SiteShell } from "@/components/layout/SiteShell";
 import {
   OrganizationJsonLd,
+  ProfessionalServiceJsonLd,
   WebSiteJsonLd,
 } from "@/components/seo/JsonLd";
 import { site } from "@/content/site";
@@ -26,7 +27,7 @@ const siteUrl = getSiteUrl();
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${site.name} · ${site.tagline}`,
+    default: `${site.name} · Software, web development & SEO`,
     template: `%s · ${site.name}`,
   },
   description: site.description,
@@ -34,6 +35,8 @@ export const metadata: Metadata = {
   authors: [{ name: site.name }],
   creator: site.name,
   publisher: site.name,
+  keywords: [...site.serviceKeywords],
+  category: "technology",
   formatDetection: {
     email: false,
     address: false,
@@ -47,13 +50,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: site.name,
-    title: site.name,
+    title: `${site.name} · Websites, applications & platforms`,
     description: site.description,
     url: siteUrl,
   },
   twitter: {
     card: "summary_large_image",
-    title: site.name,
+    title: `${site.name} · Websites, applications & platforms`,
     description: site.description,
   },
   alternates: {
@@ -62,6 +65,13 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 };
 
@@ -81,6 +91,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
         <OrganizationJsonLd />
         <WebSiteJsonLd />
+        <ProfessionalServiceJsonLd />
         <SiteShell>{children}</SiteShell>
       </body>
     </html>
