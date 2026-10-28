@@ -10,6 +10,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import sharp from "sharp";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const webRoot = path.join(__dirname, "..");
@@ -74,13 +75,14 @@ if (!payload || !Array.isArray(payload.projects)) {
 const studioOrigin = new URL(url).origin;
 const publicWorkDir = path.join(webRoot, "public", "work");
 
-const IMAGE_EXTENSIONS = {
-  "image/png": "png",
-  "image/jpeg": "jpg",
-  "image/webp": "webp",
-};
+const ACCEPTED_IMAGE_TYPES = new Set(["image/png", "image/jpeg", "image/webp"]);
+const COVER_MAX_WIDTH = 1600;
+const COVER_WEBP_QUALITY = 82;
 
-/** Studio-hosted covers are copied into web/public so the portfolio never depends on Studio at runtime. */
+/**
+ * Studio-hosted covers are optimized (WebP, max 1600px wide) and copied into
+ * web/public so the portfolio never depends on Studio at runtime.
+ */
 async function localizePreviewImage(project) {
   const source = project.previewImage;
   if (typeof source !== "string" || !source) return project;
@@ -103,25 +105,27 @@ async function localizePreviewImage(project) {
       .split(";")[0]
       .trim()
       .toLowerCase();
-    const extension = IMAGE_EXTENSIONS[contentType];
-    if (!extension) {
+    if (!ACCEPTED_IMAGE_TYPES.has(contentType)) {
       throw new Error(`unsupported content type "${contentType}"`);
     }
 
+    const optimized = await sharp(Buffer.from(await imageResponse.arrayBuffer()))
+      .resize({ width: COVER_MAX_WIDTH, withoutEnlargement: true })
+      .webp({ quality: COVER_WEBP_QUALITY })
+      .toBuffer();
+
     const projectDir = path.join(publicWorkDir, project.slug);
     await mkdir(projectDir, { recursive: true });
-    const fileName = `cover.${extension}`;
-    await writeFile(
-      path.join(projectDir, fileName),
-      Buffer.from(await imageResponse.arrayBuffer()),
-    );
+    const fileName = "cover.webp";
+    await writeFile(path.join(projectDir, fileName), optimized);
     return { ...project, previewImage: `/work/${project.slug}/${fileName}` };
   } catch (error) {
     console.warn(
       `Could not download cover for "${project.slug}" (${error.message}). Project will render without a preview image.`,
     );
-    const { previewImage: _omitted, ...rest } = project;
-    return rest;
+    const withoutImage = { ...project };
+    delete withoutImage.previewImage;
+    return withoutImage;
   }
 }
 

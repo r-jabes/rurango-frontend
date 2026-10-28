@@ -31,7 +31,7 @@ export function ProjectCard({
     >
       <ProjectMedia
         src={project.previewImage}
-        alt={`${project.title} product interface`}
+        alt={`Screenshot of the ${project.title} website`}
         aspect="cover"
         fit="contain"
       />

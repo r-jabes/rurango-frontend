@@ -5,6 +5,8 @@ import { cn } from "@/lib/cn";
 import { ProjectMedia } from "./ProjectMedia";
 import { ProjectMetadata } from "./ProjectMetadata";
 
+const SCOPE_PREVIEW_COUNT = 3;
+
 type FeaturedProjectGridProps = {
   projects: Project[];
   className?: string;
@@ -48,7 +50,7 @@ export function FeaturedProjectGrid({
                 >
                   <ProjectMedia
                     src={project.previewImage}
-                    alt={`${project.title} product interface`}
+                    alt={`Screenshot of the ${project.title} website`}
                     aspect="cover"
                     fit="contain"
                     priority={index === 0}
@@ -90,6 +92,19 @@ export function FeaturedProjectGrid({
                   <p className="pointer-events-none max-w-md text-sm text-foreground-secondary sm:text-base">
                     {project.summary}
                   </p>
+
+                  {project.scope?.length ? (
+                    <div className="pointer-events-none space-y-2">
+                      <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-foreground-muted">
+                        Delivered
+                      </p>
+                      <ul className="list-disc space-y-1 pl-5 text-sm text-foreground-secondary">
+                        {project.scope.slice(0, SCOPE_PREVIEW_COUNT).map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ) : null}
 
                   <div className="pointer-events-none">
                     <ProjectMetadata project={project} />

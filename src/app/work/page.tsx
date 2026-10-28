@@ -9,12 +9,12 @@ import { projects } from "@/content/projects";
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Selected software from RURANGO — Umutungo (property operations), Umugina (local marketplace), and Rojisitiri (multi-store retail).",
+    "Selected work from RURANGO: software for property operations, local commerce, and multi-store retail, plus a client wholesale website. Each project shows its scope, decisions, and status.",
   alternates: { canonical: "/work" },
   openGraph: {
     title: "Work · RURANGO",
     description:
-      "Shipped products that demonstrate RURANGO’s software and web engineering.",
+      "Software products and client websites, with the scope delivered and the decisions behind each.",
     url: "/work",
   },
 };
@@ -24,8 +24,8 @@ export default function WorkPage() {
     <>
       <PageIntro
         eyebrow="Work"
-        title="Selected products"
-        description="Live software that shows how RURANGO designs and ships websites, applications, and operations platforms — property management, local commerce, and multi-store retail."
+        title="Selected work"
+        description="Software products and client websites that are live today. Each entry lists what was delivered, the decisions behind it, and where it stands."
         actions={
           <ButtonLink href="/contact" variant="secondary">
             Discuss a similar project

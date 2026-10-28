@@ -42,7 +42,7 @@ export type Project = {
   constraints?: string[];
   technologies?: string[];
   liveUrl: string;
-  /** Public path under /public, e.g. /work/umutungo/cover.png */
+  /** Public path under /public, e.g. /work/umutungo/cover.webp */
   previewImage?: string;
   featured?: boolean;
   context?: string;
@@ -69,7 +69,7 @@ const staticProjects: Project[] = [
     audience:
       "Landlords, property managers, agents, and agencies running rental portfolios in Rwanda and East Africa, priced and reported in RWF.",
     liveUrl: "https://umutungo.co",
-    previewImage: "/work/umutungo/cover.png",
+    previewImage: "/work/umutungo/cover.webp",
     featured: true,
     context:
       "Umutungo is two products under one account. Owners run the portfolio in a private ops workspace — units, leases, rent, costs, maintenance, and month-end reports. Separately, vacant inventory can be published to listings.umutungo.co so renters and buyers can browse without seeing internal ledgers.",
@@ -138,7 +138,7 @@ const staticProjects: Project[] = [
     audience:
       "Shoppers comparing local inventory, shops publishing catalogs, and sales agents who earn commission on referred sales.",
     liveUrl: "https://umugina.com",
-    previewImage: "/work/umugina/cover.png",
+    previewImage: "/work/umugina/cover.webp",
     featured: true,
     context:
       "Umugina is a three-sided marketplace based in Kigali. Customers browse real listings with prices, stock status, and seller locations. Businesses publish searchable catalogs instead of relying on social posts. Sales agents get referral codes and track commissions when attributed sales complete.",
@@ -203,7 +203,7 @@ const staticProjects: Project[] = [
     audience:
       "Retail owners and teams running one or more stores who need POS, stock, credit, and reporting in the same system.",
     liveUrl: "https://rojisitiri.com",
-    previewImage: "/work/rojisitiri/cover.png",
+    previewImage: "/work/rojisitiri/cover.webp",
     featured: true,
     context:
       "Rojisitiri is a retail operating system: cashiers sell on the floor while owners track stock, credit, and performance from the same source of truth. Access is request-based while early businesses are onboarded in person.",

@@ -5,22 +5,34 @@ type ProjectMetadataProps = {
   project: Project;
 };
 
-function formatStatus(status: Project["status"]) {
-  return status.replace(/-/g, " ");
-}
+const TYPE_LABELS: Record<Project["projectType"], string> = {
+  product: "Product",
+  client: "Client project",
+  internal: "Internal tool",
+  personal: "Personal project",
+  concept: "Concept",
+};
+
+const STATUS_LABELS: Record<Project["status"], string> = {
+  shipped: "Shipped",
+  "in-progress": "In progress",
+  "soft-launch": "Soft launch",
+  concept: "Concept",
+};
 
 export function ProjectMetadata({ project }: ProjectMetadataProps) {
   const items = [
     project.year ? String(project.year) : null,
-    project.projectType,
-    formatStatus(project.status),
-  ].filter(Boolean);
+    TYPE_LABELS[project.projectType],
+    STATUS_LABELS[project.status],
+  ].filter((item): item is string => Boolean(item));
 
-  if (items.length === 0) return null;
+  // A concept type with a concept status would read twice.
+  const unique = [...new Set(items)];
 
   return (
     <div className="flex flex-wrap gap-2">
-      {items.map((item) => (
+      {unique.map((item) => (
         <Badge key={item}>{item}</Badge>
       ))}
     </div>

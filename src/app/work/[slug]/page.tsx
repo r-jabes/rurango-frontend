@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { PageContainer } from "@/components/layout/PageContainer";
 import { CaseStudyDiagram } from "@/components/projects/CaseStudyDiagram";
 import { CaseStudySection } from "@/components/projects/CaseStudySection";
+import { ProjectFacts } from "@/components/projects/ProjectFacts";
 import { ProjectMetadata } from "@/components/projects/ProjectMetadata";
 import { RelatedProjects } from "@/components/projects/RelatedProjects";
 import { ClosingCta } from "@/components/sections/ClosingCta";
@@ -72,14 +73,7 @@ export default async function WorkCasePage({
                 {project.summary}
               </p>
               <ProjectMetadata project={project} />
-              {project.role ? (
-                <p className="text-sm text-foreground-muted">
-                  Role:{" "}
-                  <span className="text-foreground-secondary">
-                    {project.role}
-                  </span>
-                </p>
-              ) : null}
+              <ProjectFacts project={project} />
               <div className="flex flex-wrap gap-3 pt-2">
                 <ButtonLink
                   href={project.liveUrl}
@@ -187,9 +181,6 @@ export default async function WorkCasePage({
                 <li key={item}>{item}</li>
               ))}
             </ul>
-            <p className="text-sm text-foreground-muted">
-              Limited to what is publicly verifiable — no invented metrics.
-            </p>
           </CaseStudySection>
         ) : null}
 
