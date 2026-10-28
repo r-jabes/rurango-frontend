@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { DirectionalLink } from "@/components/ui/DirectionalLink";
 import { ContactMotion } from "@/components/visuals/ContactMotion";
-import { site } from "@/content/site";
-
 /**
  * Right-column composition for /contact — motion asset + verified next steps.
  * No invented addresses, phones, or response-time claims.
@@ -23,9 +21,8 @@ export function ContactAside() {
           From a new site to a full operations platform.
         </p>
         <p className="max-w-sm text-sm text-foreground-secondary">
-          Typical inquiries cover websites and web apps, custom software,
-          search engine optimization, and Google Business Profile setup for
-          Search and Maps.
+          If you already have a website or Google listing, include its link.
+          It makes the first reply more specific.
         </p>
       </div>
 
@@ -59,10 +56,6 @@ export function ContactAside() {
             </Link>
           </li>
         </ul>
-
-        <p className="font-mono text-[11px] tracking-[0.08em] text-foreground-muted">
-          {site.name} · Built to outlast
-        </p>
       </div>
     </aside>
   );

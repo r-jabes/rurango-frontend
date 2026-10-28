@@ -22,7 +22,7 @@ export function SiteFooter() {
             />
           </Link>
           <p className="max-w-md text-sm text-foreground-secondary">
-            {site.description}
+            {site.tagline}
           </p>
         </div>
 
@@ -51,7 +51,7 @@ export function SiteFooter() {
               Next step
             </p>
             <p className="mt-3 text-sm text-foreground-secondary">
-              Explore the work, or get in touch about a product or opportunity.
+              Have a project in mind? Describe it and get a clear reply.
             </p>
             <Link
               href="/contact"
@@ -65,10 +65,8 @@ export function SiteFooter() {
 
       <div className="border-t border-border">
         <PageContainer className="flex flex-col gap-2 py-5 text-xs text-foreground-muted sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            © 2026 {site.name}
-          </p>
-          <p>Built to outlast.</p>
+          <p>© 2026 {site.name}</p>
+          <p>Software · Web · Search</p>
         </PageContainer>
       </div>
     </footer>

@@ -45,7 +45,7 @@ export function CapabilityItem({
               {capability.title}
             </h3>
             <p className="max-w-2xl text-sm text-foreground-secondary sm:text-base">
-              {capability.description}
+              {compact ? capability.summary : capability.description}
             </p>
           </div>
 

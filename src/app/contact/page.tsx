@@ -52,9 +52,8 @@ export default function ContactPage() {
                   Tell us what you need built or improved.
                 </h1>
                 <p className="text-base text-foreground-secondary sm:text-lg">
-                  Describe a website, web application, custom software project,
-                  SEO engagement, or Google Business Profile setup. Required
-                  fields are marked.
+                  Share what you are trying to achieve, who it is for, and any
+                  deadline. Required fields are marked.
                 </p>
               </header>
 

@@ -3,10 +3,8 @@ import { PageContainer } from "@/components/layout/PageContainer";
 import { CapabilityItem } from "@/components/sections/CapabilityItem";
 import { ClosingCta } from "@/components/sections/ClosingCta";
 import { PageIntro } from "@/components/sections/PageIntro";
-import { ProcessSteps } from "@/components/sections/ProcessSteps";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { DirectionalLink } from "@/components/ui/DirectionalLink";
-import { Eyebrow } from "@/components/ui/Eyebrow";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { capabilities } from "@/content/capabilities";
 
@@ -41,8 +39,13 @@ export default function CapabilitiesPage() {
         <SectionHeading
           eyebrow="Offerings"
           title="Services in detail"
-          description="Where a capability has shipped product evidence, links to the relevant case studies appear below. SEO and Google Business Profile work are offered as discrete service engagements."
+          description="Each service lists the problem it addresses, what you receive, and the related projects."
           className="mb-10"
+          action={
+            <DirectionalLink href="/studio#process">
+              How a project runs
+            </DirectionalLink>
+          }
         />
         <div className="border-t border-border">
           {capabilities.map((capability, index) => (
@@ -54,26 +57,6 @@ export default function CapabilitiesPage() {
           ))}
         </div>
       </PageContainer>
-
-      <section className="border-b border-border bg-background-secondary">
-        <PageContainer className="space-y-8 py-12 md:py-16">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <div className="max-w-2xl space-y-3">
-              <Eyebrow>Delivery approach</Eyebrow>
-              <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-                How engagements typically proceed
-              </h2>
-              <p className="text-foreground-secondary">
-                An intended working sequence for product and service work. It
-                describes how RURANGO approaches delivery — not a claim about a
-                large formal team.
-              </p>
-            </div>
-            <DirectionalLink href="/studio">Studio principles</DirectionalLink>
-          </div>
-          <ProcessSteps />
-        </PageContainer>
-      </section>
 
       <ClosingCta />
     </>

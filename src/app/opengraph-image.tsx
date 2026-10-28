@@ -44,8 +44,7 @@ export default function OpenGraphImage() {
               maxWidth: 900,
             }}
           >
-            Websites, applications, and platforms — designed and engineered to
-            last.
+            Custom software, websites, and search visibility.
           </div>
           <div
             style={{
@@ -69,7 +68,7 @@ export default function OpenGraphImage() {
           }}
         >
           <span>rurango.com</span>
-          <span style={{ color: "#B8F500" }}>Built to outlast</span>
+          <span style={{ color: "#B8F500" }}>Umutungo · Umugina · Rojisitiri</span>
         </div>
       </div>
     ),

@@ -15,12 +15,11 @@ export function ClosingCta() {
         <div className="relative z-10 max-w-xl space-y-4">
           <Eyebrow>Next step</Eyebrow>
           <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
-            Discuss a website, application, or search visibility project
+            Have something to build or fix?
           </h2>
           <p className="text-foreground-secondary">
-            Whether you need custom software, a business website, SEO, or a
-            Google Business Profile that appears correctly on Maps — describe
-            the work and we will respond with clear next steps.
+            Send a short description of the problem. You will get a clear
+            reply on whether and how RURANGO can help.
           </p>
         </div>
         <div className="relative z-10 flex flex-wrap gap-3">

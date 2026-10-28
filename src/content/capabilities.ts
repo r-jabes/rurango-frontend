@@ -1,19 +1,18 @@
 export type Capability = {
   title: string;
+  /** One line — used where a service is listed outside /capabilities. */
+  summary: string;
   description: string;
   problem: string;
   deliverables: string[];
   relatedSlugs: string[];
 };
 
-/**
- * Service wording aligned with how comparable firms list offerings
- * (e.g. custom software, web development, SEO, Google Business Profile)
- * without invented client counts, rankings, or awards.
- */
 export const capabilities: Capability[] = [
   {
     title: "Custom software development",
+    summary:
+      "Applications for workflows that have outgrown spreadsheets and chat threads.",
     description:
       "Purpose-built applications for workflows that outgrow spreadsheets, chat threads, and disconnected tools — from internal systems to multi-user platforms.",
     problem:
@@ -27,6 +26,8 @@ export const capabilities: Capability[] = [
   },
   {
     title: "Websites and web applications",
+    summary:
+      "Business sites, customer portals, and dashboards that load fast and are easy to update.",
     description:
       "Marketing sites, customer-facing web apps, dashboards, and portals — designed for clarity on mobile and desktop, then engineered for maintainable delivery.",
     problem:
@@ -40,8 +41,10 @@ export const capabilities: Capability[] = [
   },
   {
     title: "Search engine optimization (SEO)",
+    summary:
+      "Technical and on-page fixes so the right pages can be found for the right searches.",
     description:
-      "Technical and on-page SEO so pages can be crawled, understood, and ranked for the queries that match your services — without fabricated traffic claims.",
+      "Technical and on-page SEO so pages can be crawled, understood, and ranked for the queries that match your services.",
     problem:
       "A site that looks finished can still be invisible: weak titles, missing structure, slow pages, or content that never states what the business actually offers.",
     deliverables: [
@@ -53,6 +56,7 @@ export const capabilities: Capability[] = [
   },
   {
     title: "Google Business Profile and local search",
+    summary: "A complete, verified listing on Google Search and Maps.",
     description:
       "Setup and optimization of Google Business Profile so the business appears correctly on Google Search and Google Maps — categories, hours, photos, and listing consistency.",
     problem:
@@ -66,6 +70,8 @@ export const capabilities: Capability[] = [
   },
   {
     title: "Frontend engineering",
+    summary:
+      "Accessible, responsive interfaces built on a maintainable component system.",
     description:
       "Interfaces with clear hierarchy, responsive layouts, accessible controls, and reusable component systems — the same standard applied to this portfolio.",
     problem:
@@ -79,6 +85,8 @@ export const capabilities: Capability[] = [
   },
   {
     title: "Operations platforms",
+    summary:
+      "Rent, stock, credit, and reporting tools for the people running day-to-day operations.",
     description:
       "Software for day-to-day operations: property and lease management, shop inventory and sales, and marketplace discovery for local commerce.",
     problem:
@@ -92,30 +100,30 @@ export const capabilities: Capability[] = [
   },
 ];
 
-export const principles = [
+/** Practices shown on /studio — each one points to something visible in the work. */
+export const howWeWork = [
   {
-    title: "Clarity before complexity",
+    title: "Start from the workflow",
     description:
-      "Structure, typography, and hierarchy come first. Effects support the message rather than replace it.",
+      "Each product begins with how the work is done today: who records what, where it breaks, and what the owner needs to see. Umutungo treats month-end as a real workflow, and Rojisitiri reports across stores rather than one till.",
   },
   {
-    title: "Craft in the details",
+    title: "Keep public and private apart",
     description:
-      "Focus states, empty states, spacing, and media treatment are part of the product — not polish left for later.",
+      "Public pages and private ledgers are separate surfaces. Umutungo keeps property operations apart from its public listings, and access follows the role.",
   },
   {
-    title: "Engineering with purpose",
+    title: "Build for the device in hand",
     description:
-      "Architecture and implementation choices should make the product easier to use, maintain, and extend.",
+      "Layouts are recomposed for narrow screens, controls are labelled, focus is visible, and motion respects reduced-motion settings. This site is held to the same bar.",
   },
   {
-    title: "Performance by design",
+    title: "Show status, claim only what is verified",
     description:
-      "Lightweight rendering, honest loading behavior, and reduced-motion support are design requirements.",
+      "Every project is marked shipped, soft launch, or concept. Outcomes appear only when they can be backed up.",
   },
 ] as const;
 
-/** Intended delivery sequence — not a claim about a large formal team. */
 export const processSteps = [
   {
     title: "Scope the problem and constraints",
@@ -141,28 +149,5 @@ export const processSteps = [
     title: "Launch and iterate",
     description:
       "Ship a coherent release, review Search Console or listing status where relevant, and refine based on how the live product or profile performs.",
-  },
-] as const;
-
-export const qualityStandards = [
-  {
-    title: "Responsive composition",
-    description:
-      "Layouts are recomposed for narrow viewports — not simply stacked desktop sections.",
-  },
-  {
-    title: "Accessibility as quality",
-    description:
-      "Semantic structure, visible focus, labeled controls, and reduced-motion support are part of the definition of done.",
-  },
-  {
-    title: "Maintainable systems",
-    description:
-      "Shared tokens and components keep product surfaces consistent without fragile one-offs.",
-  },
-  {
-    title: "Honest content",
-    description:
-      "Claims stay within verified work. Concepts and soft launches are labeled — never presented as fabricated proof.",
   },
 ] as const;
