@@ -1,45 +1,76 @@
+export type ServiceInquiryType = "software" | "website" | "seo" | "gbp";
+
 export type Capability = {
+  /** Anchor id on /capabilities. */
+  id: string;
+  /** Value of the matching option in the contact form's inquiry type. */
+  inquiryType: ServiceInquiryType;
   title: string;
   /** One line — used where a service is listed outside /capabilities. */
   summary: string;
   description: string;
   problem: string;
+  forWhom: string;
   deliverables: string[];
+  /** What the client needs to bring to get started. */
+  youProvide: string[];
   relatedSlugs: string[];
 };
 
 export const capabilities: Capability[] = [
   {
-    title: "Custom software development",
+    id: "software",
+    inquiryType: "software",
+    title: "Custom software and operations platforms",
     summary:
-      "Applications for workflows that have outgrown spreadsheets and chat threads.",
+      "Applications for the work that spreadsheets and chat threads can no longer hold: rent, stock, credit, approvals, and reporting.",
     description:
-      "Purpose-built applications for workflows that outgrow spreadsheets, chat threads, and disconnected tools — from internal systems to multi-user platforms.",
+      "Purpose-built applications for businesses whose daily operations have outgrown spreadsheets and chat threads — from property and lease management to multi-store retail and local marketplaces.",
     problem:
-      "Generic tools force teams to adapt their process to the software. Important rules live in people’s heads, and reporting stays incomplete.",
+      "Generic tools force teams to adapt their process to the software. When notebooks and chats run the business, arrears hide, stock drifts, and decisions arrive late.",
+    forWhom:
+      "Owners and managers who track rent, stock, credit, or approvals by hand and need one reliable record.",
     deliverables: [
-      "Requirements framing and role-based access design",
+      "Workflow and requirements framing, with role-based access design",
       "Application architecture, APIs, and data models",
-      "Implementation, deployment, and handover documentation",
+      "Operations features such as rent, inventory, credit, and reporting",
+      "Deployment and handover documentation",
+    ],
+    youProvide: [
+      "How the work is done today, step by step",
+      "Who uses it, and what each role should see",
+      "Sample spreadsheets, forms, or reports you rely on now",
     ],
     relatedSlugs: ["umutungo", "rojisitiri", "umugina"],
   },
   {
+    id: "websites",
+    inquiryType: "website",
     title: "Websites and web applications",
     summary:
       "Business sites, customer portals, and dashboards that load fast and are easy to update.",
     description:
-      "Marketing sites, customer-facing web apps, dashboards, and portals — designed for clarity on mobile and desktop, then engineered for maintainable delivery.",
+      "Marketing sites, customer-facing web apps, dashboards, and portals — designed for clarity on mobile and desktop, and built as accessible, responsive interfaces on a maintainable component system.",
     problem:
       "Many businesses need a credible public site or a working web app, not a disposable template that is slow, hard to update, or weak in search.",
+    forWhom:
+      "Businesses that need a clear public presence, a product catalogue, or a customer-facing application.",
     deliverables: [
       "Information architecture and page structure",
-      "Responsive UI implementation with accessible interactions",
+      "Responsive, keyboard-accessible interface implementation",
       "Forms, content models, and production deployment",
+      "Design tokens and reusable components for future changes",
     ],
-    relatedSlugs: ["umugina", "umutungo"],
+    youProvide: [
+      "Your goals, and who the site is for",
+      "Existing branding, logo, and copy — or a note that the copy needs writing",
+      "Examples of sites you like or want to avoid",
+    ],
+    relatedSlugs: ["ipshap", "umugina", "umutungo"],
   },
   {
+    id: "seo",
+    inquiryType: "seo",
     title: "Search engine optimization (SEO)",
     summary:
       "Technical and on-page fixes so the right pages can be found for the right searches.",
@@ -47,58 +78,77 @@ export const capabilities: Capability[] = [
       "Technical and on-page SEO so pages can be crawled, understood, and ranked for the queries that match your services.",
     problem:
       "A site that looks finished can still be invisible: weak titles, missing structure, slow pages, or content that never states what the business actually offers.",
+    forWhom:
+      "Businesses with a website that looks finished but is hard to find on Google.",
     deliverables: [
       "Technical SEO review (crawlability, metadata, indexing basics)",
       "On-page structure: titles, descriptions, headings, internal links",
       "Content recommendations tied to real services and locations",
     ],
+    youProvide: [
+      "Your website address, and Google Search Console access if you have it",
+      "The services and locations you want to be found for",
+      "Any SEO work already done",
+    ],
     relatedSlugs: [],
   },
   {
+    id: "google-business-profile",
+    inquiryType: "gbp",
     title: "Google Business Profile and local search",
     summary: "A complete, verified listing on Google Search and Maps.",
     description:
       "Setup and optimization of Google Business Profile so the business appears correctly on Google Search and Google Maps — categories, hours, photos, and listing consistency.",
     problem:
-      "Customers search nearby businesses on Google. Incomplete or unverified profiles, inconsistent name/address/phone data, and weak categories reduce discoverability.",
+      "Customers search nearby businesses on Google. Incomplete or unverified profiles, inconsistent name, address, and phone details, and weak categories reduce discoverability.",
+    forWhom:
+      "Local businesses whose customers look for them on Google Search and Maps.",
     deliverables: [
       "Google Business Profile creation or cleanup",
       "Verification support and profile optimization",
       "Guidance on photos, categories, posts, and review responses",
     ],
+    youProvide: [
+      "Business name, address, phone, and opening hours as they should appear",
+      "Photos of the premises, products, or team",
+      "Access to any existing Google listing",
+    ],
     relatedSlugs: [],
   },
-  {
-    title: "Frontend engineering",
-    summary:
-      "Accessible, responsive interfaces built on a maintainable component system.",
-    description:
-      "Interfaces with clear hierarchy, responsive layouts, accessible controls, and reusable component systems — the same standard applied to this portfolio.",
-    problem:
-      "Products lose trust when the UI is fragile, inaccessible, or inconsistent — even when the underlying idea is sound.",
-    deliverables: [
-      "Responsive, keyboard-accessible interfaces",
-      "Design tokens and maintainable component libraries",
-      "Performance-conscious rendering and reduced-motion support",
-    ],
-    relatedSlugs: ["umugina", "umutungo"],
-  },
-  {
-    title: "Operations platforms",
-    summary:
-      "Rent, stock, credit, and reporting tools for the people running day-to-day operations.",
-    description:
-      "Software for day-to-day operations: property and lease management, shop inventory and sales, and marketplace discovery for local commerce.",
-    problem:
-      "When notebooks and chats run the business, arrears hide, stock drifts, and decisions arrive too late.",
-    deliverables: [
-      "Ops tools for rent, inventory, credit, and reporting",
-      "Role-appropriate access for owners, managers, and staff",
-      "Clear separation between public surfaces and private ledgers",
-    ],
-    relatedSlugs: ["umutungo", "rojisitiri", "umugina"],
-  },
 ];
+
+export const serviceFaq = [
+  {
+    question: "How does a project start?",
+    answer:
+      "Send a short description through the contact form: what you want to achieve, who it is for, and any deadline. The first step is scoping the problem and constraints, before anything is built. The full sequence is on the studio page.",
+  },
+  {
+    question: "What should I include in my message?",
+    answer:
+      "Your goal, the people who will use the result, a deadline if there is one, and links to your current website, spreadsheets, or Google listing. Each service above lists what is most useful to bring.",
+  },
+  {
+    question: "Can I see working examples?",
+    answer:
+      "Yes. The work page shows live products and a client website, each with its status, the problem it addresses, and the decisions behind it.",
+  },
+  {
+    question: "Can you improve a site or system I already have?",
+    answer:
+      "Yes. SEO and Google Business Profile work normally start from an existing site or listing. For software and websites, scope is set after reviewing what exists and deciding whether to extend or replace it.",
+  },
+  {
+    question: "How is SEO progress measured?",
+    answer:
+      "From Google Search Console: indexing status, impressions, and clicks for the pages that matter. Rankings depend on Google, so a specific position is not promised.",
+  },
+  {
+    question: "Who verifies a Google Business Profile?",
+    answer:
+      "Google does. RURANGO prepares the profile, supports the verification steps, and completes categories, hours, photos, and consistent business details.",
+  },
+] as const;
 
 /** Practices shown on /studio — each one points to something visible in the work. */
 export const howWeWork = [

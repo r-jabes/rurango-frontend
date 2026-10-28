@@ -65,7 +65,7 @@ export function ProfessionalServiceJsonLd() {
           "@type": "Service",
           name: capability.title,
           description: capability.description,
-          url: absoluteUrl("/capabilities"),
+          url: absoluteUrl(`/capabilities#${capability.id}`),
         },
       })),
     },

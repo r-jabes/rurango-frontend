@@ -13,7 +13,6 @@ export const site = {
     "SEO",
     "Google Business Profile",
     "local search",
-    "frontend engineering",
     "operations platforms",
   ] as const,
   nav: [

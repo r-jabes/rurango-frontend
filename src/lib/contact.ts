@@ -11,6 +11,20 @@ export const INQUIRY_TYPES = [
 
 export type InquiryType = (typeof INQUIRY_TYPES)[number]["value"];
 
+/** True for a non-empty, recognised inquiry type. */
+export function isInquiryType(value: unknown): value is Exclude<InquiryType, ""> {
+  return (
+    typeof value === "string" &&
+    value !== "" &&
+    INQUIRY_TYPES.some((option) => option.value === value)
+  );
+}
+
+export function getInquiryLabel(value: string | undefined) {
+  return INQUIRY_TYPES.find((option) => option.value === value && value !== "")
+    ?.label;
+}
+
 export type ContactPayload = {
   name: string;
   email: string;
@@ -59,6 +73,10 @@ export function validateContactPayload(
     errors.email = "Enter your email address.";
   } else if (!EMAIL_PATTERN.test(payload.email.trim())) {
     errors.email = "Enter a valid email address.";
+  }
+
+  if (payload.inquiryType && !isInquiryType(payload.inquiryType)) {
+    errors.inquiryType = "Choose one of the listed inquiry types.";
   }
 
   if (!payload.message.trim()) {

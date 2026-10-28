@@ -1,6 +1,7 @@
 "use server";
 
 import {
+  getInquiryLabel,
   isContactConfigured,
   normalizeContactPayload,
   type ContactActionResult,
@@ -50,7 +51,7 @@ export async function submitContactForm(
   const to = process.env.CONTACT_TO_EMAIL!;
   const from = process.env.CONTACT_FROM_EMAIL!;
   const apiKey = process.env.RESEND_API_KEY!;
-  const inquiryLabel = payload.inquiryType?.trim() || "general";
+  const inquiryLabel = getInquiryLabel(payload.inquiryType) ?? "General";
 
   const text = [
     `Name: ${payload.name.trim()}`,

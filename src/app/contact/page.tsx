@@ -7,7 +7,7 @@ import { ContactAside } from "@/components/sections/ContactAside";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AmbientSurface } from "@/components/visuals/AmbientSurface";
 import { Reveal } from "@/components/visuals/Reveal";
-import { isContactConfigured } from "@/lib/contact";
+import { isContactConfigured, isInquiryType } from "@/lib/contact";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -22,10 +22,23 @@ export const metadata: Metadata = {
   },
 };
 
-async function ContactFormSection() {
+type ContactSearchParams = Promise<{ service?: string | string[] }>;
+
+async function ContactFormSection({
+  searchParams,
+}: {
+  searchParams: ContactSearchParams;
+}) {
   await connection();
+  const { service } = await searchParams;
+  const requested = Array.isArray(service) ? service[0] : service;
   const configured = isContactConfigured();
-  return <ContactForm configured={configured} />;
+  return (
+    <ContactForm
+      configured={configured}
+      defaultInquiryType={isInquiryType(requested) ? requested : undefined}
+    />
+  );
 }
 
 function FormSkeleton() {
@@ -39,7 +52,11 @@ function FormSkeleton() {
   );
 }
 
-export default function ContactPage() {
+export default function ContactPage({
+  searchParams,
+}: {
+  searchParams: ContactSearchParams;
+}) {
   return (
     <AmbientSurface intensity="subtle" grid className="flex-1 border-b border-border">
       <PageContainer className="py-12 md:py-16 lg:py-20">
@@ -58,7 +75,7 @@ export default function ContactPage() {
               </header>
 
               <Suspense fallback={<FormSkeleton />}>
-                <ContactFormSection />
+                <ContactFormSection searchParams={searchParams} />
               </Suspense>
             </div>
           </Reveal>

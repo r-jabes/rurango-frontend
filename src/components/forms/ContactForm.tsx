@@ -10,6 +10,8 @@ import { SelectField } from "./SelectField";
 
 type ContactFormProps = {
   configured: boolean;
+  /** Pre-selected inquiry type, e.g. from a service page link. */
+  defaultInquiryType?: string;
 };
 
 type Draft = {
@@ -28,10 +30,16 @@ const emptyDraft: Draft = {
   message: "",
 };
 
-export function ContactForm({ configured }: ContactFormProps) {
+export function ContactForm({
+  configured,
+  defaultInquiryType = "",
+}: ContactFormProps) {
   const [pending, startTransition] = useTransition();
   const [state, setState] = useState<ContactActionResult | null>(null);
-  const [draft, setDraft] = useState<Draft>(emptyDraft);
+  const [draft, setDraft] = useState<Draft>({
+    ...emptyDraft,
+    inquiryType: defaultInquiryType,
+  });
   const [toast, setToast] = useState<ToastMessage | null>(null);
   const statusId = useId();
   const statusRef = useRef<HTMLDivElement>(null);
@@ -216,9 +224,8 @@ export function ContactForm({ configured }: ContactFormProps) {
           </div>
 
           <p className="text-sm text-foreground-muted">
-            Inquiries are for product projects, collaborations, and
-            opportunities. When delivery is configured, submissions are emailed
-            to RURANGO and not stored in an application database by this site.
+            Your message is emailed to RURANGO and is not stored in a database
+            by this site.
           </p>
         </div>
       </form>
