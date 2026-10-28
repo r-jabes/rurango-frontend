@@ -59,9 +59,6 @@ export const metadata: Metadata = {
     title: `${site.name} · Websites, applications & platforms`,
     description: site.description,
   },
-  alternates: {
-    canonical: "/",
-  },
   robots: {
     index: true,
     follow: true,

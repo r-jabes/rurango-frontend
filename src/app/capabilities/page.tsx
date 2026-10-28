@@ -12,7 +12,7 @@ import { capabilities, serviceFaq } from "@/content/capabilities";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Four services from RURANGO: custom software and operations platforms, websites and web applications, search engine optimization (SEO), and Google Business Profile setup.",
+    "Custom software, websites and web apps, SEO, and Google Business Profile setup — each with its scope, what to bring, and related work.",
   alternates: { canonical: "/capabilities" },
   openGraph: {
     title: "Services · RURANGO",

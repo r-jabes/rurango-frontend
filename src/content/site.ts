@@ -2,7 +2,7 @@ export const site = {
   name: "RURANGO",
   tagline: "Custom software, websites, and search visibility.",
   description:
-    "RURANGO designs and builds custom software, websites, and web applications. Services also include search engine optimization and Google Business Profile setup for visibility on Google Search and Maps. Shipped products include Umutungo, Umugina, and Rojisitiri.",
+    "RURANGO designs and builds custom software, websites, and web applications, and helps businesses get found with SEO and Google Business Profile setup.",
   /** Short phrases for metadata and structured data — not ranking claims. */
   serviceKeywords: [
     "software development",

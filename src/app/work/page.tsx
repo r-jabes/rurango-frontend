@@ -9,7 +9,7 @@ import { projects } from "@/content/projects";
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Selected work from RURANGO: software for property operations, local commerce, and multi-store retail, plus a client wholesale website. Each project shows its scope, decisions, and status.",
+    "Software products and a client website from RURANGO, with the scope delivered, the decisions made, and the status of each.",
   alternates: { canonical: "/work" },
   openGraph: {
     title: "Work · RURANGO",
@@ -33,7 +33,7 @@ export default function WorkPage() {
         }
       />
       <PageContainer className="space-y-8 py-12 md:py-16">
-        <FeaturedProjectGrid projects={projects} />
+        <FeaturedProjectGrid projects={projects} headingLevel="h2" />
       </PageContainer>
       <ClosingCta />
     </>

@@ -1,8 +1,14 @@
+import type { Metadata } from "next";
 import { PageContainer } from "@/components/layout/PageContainer";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AmbientSurface } from "@/components/visuals/AmbientSurface";
 import { NotFoundGeometry } from "@/components/visuals/NotFoundGeometry";
+
+export const metadata: Metadata = {
+  title: "Page not found",
+  description: "This page does not exist or may have moved.",
+};
 
 export default function NotFound() {
   return (
@@ -15,8 +21,8 @@ export default function NotFound() {
             Page not found
           </h1>
           <p className="text-lg text-foreground-secondary">
-            The route you requested does not exist or may have moved. Head home
-            or browse the work instead.
+            This page does not exist or may have moved. Head home or browse the
+            work instead.
           </p>
           <div className="flex flex-wrap gap-3 pt-2">
             <ButtonLink href="/">Back home</ButtonLink>

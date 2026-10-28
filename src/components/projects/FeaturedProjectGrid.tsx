@@ -10,6 +10,8 @@ const SCOPE_PREVIEW_COUNT = 3;
 type FeaturedProjectGridProps = {
   projects: Project[];
   className?: string;
+  /** Match the surrounding outline: "h2" under a page title, "h3" under a section heading. */
+  headingLevel?: "h2" | "h3";
 };
 
 /**
@@ -19,6 +21,7 @@ type FeaturedProjectGridProps = {
 export function FeaturedProjectGrid({
   projects,
   className,
+  headingLevel: Heading = "h3",
 }: FeaturedProjectGridProps) {
   if (projects.length === 0) {
     return (
@@ -68,7 +71,7 @@ export function FeaturedProjectGrid({
                   </p>
 
                   <div className="flex items-start justify-between gap-3">
-                    <h3 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+                    <Heading className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
                       <Link
                         href={href}
                         className={cn(
@@ -80,7 +83,7 @@ export function FeaturedProjectGrid({
                       >
                         {project.title}
                       </Link>
-                    </h3>
+                    </Heading>
                     <span
                       aria-hidden="true"
                       className="pointer-events-none relative z-[2] mt-1 inline-block text-accent transition-transform duration-[var(--motion-base)] ease-[var(--ease-out)] group-hover:translate-x-1.5 group-focus-within:translate-x-1.5"
