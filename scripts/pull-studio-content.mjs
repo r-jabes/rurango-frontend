@@ -7,7 +7,7 @@
  *   STUDIO_CONTENT_TOKEN  (must match Studio CMS_CONTENT_TOKEN)
  */
 import { existsSync, readFileSync } from "node:fs";
-import { writeFile } from "node:fs/promises";
+import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -71,11 +71,70 @@ if (!payload || !Array.isArray(payload.projects)) {
   process.exit(1);
 }
 
+const studioOrigin = new URL(url).origin;
+const publicWorkDir = path.join(webRoot, "public", "work");
+
+const IMAGE_EXTENSIONS = {
+  "image/png": "png",
+  "image/jpeg": "jpg",
+  "image/webp": "webp",
+};
+
+/** Studio-hosted covers are copied into web/public so the portfolio never depends on Studio at runtime. */
+async function localizePreviewImage(project) {
+  const source = project.previewImage;
+  if (typeof source !== "string" || !source) return project;
+
+  const isStudioMedia =
+    source.startsWith("/api/media/") ||
+    source.startsWith(`${studioOrigin}/api/media/`);
+  if (!isStudioMedia) return project;
+
+  const mediaUrl = source.startsWith("/")
+    ? `${studioOrigin}${source}`
+    : source;
+
+  try {
+    const imageResponse = await fetch(mediaUrl);
+    if (!imageResponse.ok) {
+      throw new Error(`HTTP ${imageResponse.status}`);
+    }
+    const contentType = (imageResponse.headers.get("content-type") ?? "")
+      .split(";")[0]
+      .trim()
+      .toLowerCase();
+    const extension = IMAGE_EXTENSIONS[contentType];
+    if (!extension) {
+      throw new Error(`unsupported content type "${contentType}"`);
+    }
+
+    const projectDir = path.join(publicWorkDir, project.slug);
+    await mkdir(projectDir, { recursive: true });
+    const fileName = `cover.${extension}`;
+    await writeFile(
+      path.join(projectDir, fileName),
+      Buffer.from(await imageResponse.arrayBuffer()),
+    );
+    return { ...project, previewImage: `/work/${project.slug}/${fileName}` };
+  } catch (error) {
+    console.warn(
+      `Could not download cover for "${project.slug}" (${error.message}). Project will render without a preview image.`,
+    );
+    const { previewImage: _omitted, ...rest } = project;
+    return rest;
+  }
+}
+
+const projects = [];
+for (const project of payload.projects) {
+  projects.push(await localizePreviewImage(project));
+}
+
 const normalized = {
   version: payload.version ?? 1,
   generatedAt: payload.generatedAt ?? new Date().toISOString(),
   source: payload.source ?? "rurango-studio",
-  projects: payload.projects,
+  projects,
 };
 
 await writeFile(outPath, `${JSON.stringify(normalized, null, 2)}\n`, "utf8");

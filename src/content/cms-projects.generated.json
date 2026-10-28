@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-28T13:23:12.764Z",
+  "generatedAt": "2026-10-28T13:32:07.576Z",
   "source": "rurango-studio",
   "projects": [
     {
@@ -29,7 +29,7 @@
         "Tailwind CSS"
       ],
       "liveUrl": "https://the-ipshap.com",
-      "previewImage": "/api/media/media/public/5a5e0a1f-7bc0-4f4d-9dc8-14832bf03913-ipshap-cover.png",
+      "previewImage": "/work/ipshap/cover.png",
       "featured": true,
       "context": "IP SHAP sells wholesale wines, spirits, beer, and soft drinks from Kigali. They needed a public site where customers can see ranges and prices, build an order, and leave delivery details — without pretending the site already settles payment.",
       "problem": "Wholesale buyers often rely on calls, WhatsApp, or a visit to know what’s available and at what price. That slows ordering and makes it hard to browse the full range before speaking to the shop.",
