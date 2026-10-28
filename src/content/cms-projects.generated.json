@@ -1,6 +1,70 @@
 {
   "version": 1,
-  "generatedAt": null,
+  "generatedAt": "2026-10-28T13:23:12.764Z",
   "source": "rurango-studio",
-  "projects": []
+  "projects": [
+    {
+      "title": "IP SHAP",
+      "slug": "ipshap",
+      "summary": "Wholesale drinks storefront for IP SHAP in Kigali: wines, spirits, beer, and soft drinks with cart checkout — orders are confirmed with the shop for availability, delivery, and payment.",
+      "projectType": "client",
+      "status": "shipped",
+      "year": 2026,
+      "role": "Product design and engineering",
+      "audience": "Bars, shops, hotels, and buyers in Rwanda who purchase wines, spirits, beer, and soft drinks at wholesale volumes.",
+      "scope": [
+        "Public wholesale catalogue by product range",
+        "Cart and checkout with contact and delivery details",
+        "Order confirmation workflow (availability, delivery, payment)",
+        "Kigali shop presence and contact paths"
+      ],
+      "constraints": [
+        "No charge on the site until the shop confirms the order",
+        "Delivery outside Kigali confirmed case by case",
+        "Prices and stock must stay truthful for wholesale buyers"
+      ],
+      "technologies": [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS"
+      ],
+      "liveUrl": "https://the-ipshap.com",
+      "previewImage": "/api/media/media/public/5a5e0a1f-7bc0-4f4d-9dc8-14832bf03913-ipshap-cover.png",
+      "featured": true,
+      "context": "IP SHAP sells wholesale wines, spirits, beer, and soft drinks from Kigali. They needed a public site where customers can see ranges and prices, build an order, and leave delivery details — without pretending the site already settles payment.",
+      "problem": "Wholesale buyers often rely on calls, WhatsApp, or a visit to know what’s available and at what price. That slows ordering and makes it hard to browse the full range before speaking to the shop.",
+      "approach": "Build a clear catalogue by range (wines & spirits, beer, soft drinks), a standard cart, and a checkout that captures identity and delivery. Keep payment and final confirmation as a human follow-up so stock and logistics stay honest.",
+      "decisions": [
+        {
+          "title": "Confirm after checkout",
+          "detail": "The site collects the order, then IP SHAP confirms availability, delivery, and payment. That keeps wholesale logistics honest instead of promising instant settlement."
+        },
+        {
+          "title": "Shop by range",
+          "detail": "Wines & spirits, beer, and soft drinks are separate entry points so wholesale buyers can scan the shelf they care about first."
+        },
+        {
+          "title": "Delivery as a conversation",
+          "detail": "Coverage and fees outside Kigali are confirmed per order, not hard-coded as a false guarantee."
+        }
+      ],
+      "implementation": "Live marketing and ordering site at the-ipshap.com with category browsing, cart, and checkout. Orders trigger a confirm step for availability, delivery coverage, and payment — including areas outside Kigali when agreed.",
+      "outcomes": [
+        "Live wholesale storefront at https://the-ipshap.com",
+        "Browsable ranges for wines & spirits, beer, and soft drinks",
+        "Checkout that collects order and delivery details for shop confirmation"
+      ],
+      "learnings": [
+        "For wholesale, trust beats fake instant checkout — confirm stock and payment with the seller.",
+        "Clear ranges and “from” pricing help buyers start without a phone call."
+      ],
+      "capabilities": [
+        "Client website",
+        "Product catalogue and cart",
+        "Checkout and lead capture",
+        "Rwanda-focused commerce UX"
+      ],
+      "notes": "Client project. Payment is agreed when the shop confirms the order; the site does not claim instant online settlement."
+    }
+  ]
 }
